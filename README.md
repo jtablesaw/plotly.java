@@ -1,15 +1,9 @@
 # plotly.java
-A third-party Java wrapper for plotly.js
-
-
-
-## What is plotly.java?
-
 Plotly.java is a third-party Java wrapper for the [Plotly JavaScript open source graphing library](https://plotly.com/javascript/), one of the finest graphing libraries available.  plotly.java lets you generate a wide range of JavaScript/HTML charts.  
 
-Plotly.java was developed as part of the [Tablesaw Java dataframe library](https://github.com/jtablesaw/tablesaw). Dependencies on Tablesaw have now been removed to make it easier to incorporate visualizations into a broad range of Java applications. 
+Plotly.java was developed as part of the [Tablesaw Java dataframe library](https://github.com/jtablesaw/tablesaw), beginning in 2018, as a tool for exploratory data analysis. Dependencies on Tablesaw have  been removed to make it easier to incorporate visualizations into a broad range of Java applications, but it remains a key part of the overall data wrangling solution. 
 
-
+## Plots created with plotly.java
 
 
 | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/box1.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scatter_2_Yaxes.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/tornado.scatter.png) |
@@ -20,6 +14,9 @@ Plotly.java was developed as part of the [Tablesaw Java dataframe library](https
 | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_heatmap1.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tornado_bar_groups.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/ohlc1.png) |
 
 ## An Example:
+
+Here's a simple example. Two data arrays are used to create an area plot. 
+
 ```java
 package tech.tablesaw.examples;
 
@@ -33,7 +30,7 @@ public class AreaPlotExample {
   /** Creates a simple area plot with an index (observation number) x axis */
   public static void main(String[] args) throws Exception {
 
-    String title = "Boston Robberies: 1966-1975";
+    String title = "Boston Robberies: 1966-1967";
     double[] observation = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0};
     double[] count = {41.0, 39.0, 50.0, 40.0, 43.0, 38.0, 44.0, 35.0, 39.0, 35.0, 29.0, 49.0};
 
@@ -49,6 +46,15 @@ public class AreaPlotExample {
 }
 ```
 
+As you can see, plotly.java has a builder API, that lets you configure each plot exactly as you want, while retaining Java's type safety. 
+
+## How plots are rendered:
+
+Since Plotly is a JavaScript library, rendering is ultimately handled by a browser. There are three basic ways:
+
+- Send the plot to a browser from a Web app.
+- Render the plot in your desktop's default browser from your IDE
+- Render the plot in a Jupyter Notebook
 
 ## To get started:
 
@@ -62,3 +68,7 @@ Add tablesaw-plotly-java to your project. You can find the version number for th
     <version>VERSION_NUMBER_GOES_HERE</version>
 </dependency>
 ```
+
+## Documentation:
+
+The best source of documentation is the Plotly.js library documentation as everything in plotly.java exists solely to generate and render plotly.js code. 

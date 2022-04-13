@@ -1,0 +1,18 @@
+target/
+
+testoutput/
+
+# IntelliJ
+*.iml
+.idea/
+
+# Eclipse
+.project
+.settings
+.classpath
+bin/
+
+# NetBeans
+nbproject/private/
+nbactions.xml
+nb-configuration.xml
