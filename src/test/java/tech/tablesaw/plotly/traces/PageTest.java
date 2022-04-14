@@ -1,4 +1,4 @@
-package tech.tablesaw.plotly;
+package tech.tablesaw.plotly.traces;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -16,7 +16,7 @@ public class PageTest {
   public void testDefaultPlotlyJsLocation() {
     BarTrace trace = BarTrace.builder(x, y).build();
     Page page = Page.pageBuilder(new Figure(trace), "plot").build();
-    String html = page.asJavascript();
+    String html = page.asJSON();
     assertTrue(html.indexOf("\"" + "https://cdn.plot.ly/plotly-latest.min.js" + "\"") > 0);
   }
 
@@ -26,7 +26,7 @@ public class PageTest {
     String location =
         this.getClass().getResource(this.getClass().getSimpleName() + ".class").toString();
     Page page = Page.pageBuilder(new Figure(trace), "plot").plotlyJsLocation(location).build();
-    String html = page.asJavascript();
+    String html = page.asJSON();
     assertTrue(html.indexOf("\"" + location + "\"") > 0);
   }
 }

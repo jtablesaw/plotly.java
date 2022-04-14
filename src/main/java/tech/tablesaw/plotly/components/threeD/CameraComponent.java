@@ -17,17 +17,7 @@ class CameraComponent extends Component {
   }
 
   @Override
-  public String asJavascript() {
-    return asJSON();
-  }
-
-  @Override
   protected Map<String, Object> getJSONContext() {
-    return getContext();
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
     Map<String, Object> context = new HashMap<>();
     context.put("x", x);
     context.put("y", y);

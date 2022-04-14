@@ -7,9 +7,11 @@ public class Utils {
 
   private Utils() {}
 
+
   public static String dataAsString(double[] data) {
     return Arrays.toString(data);
   }
+
 
   /** @return un-escaped quote of argument */
   public static String quote(String string) {
@@ -38,6 +40,14 @@ public class Utils {
     }
     builder.append("]");
     return builder.toString();
+  }
+
+  public static String[] dataAsArrayofStrings(Object[] data) {
+    String[] values = new String[data.length];
+    for (int i = 0; i < data.length; i++) {
+      values[i] = "\"" + data[i] + "\"";
+    }
+    return values;
   }
 
   public static String dataAsString(double[][] data) {

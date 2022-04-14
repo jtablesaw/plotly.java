@@ -2,6 +2,7 @@ package tech.tablesaw.plotly.components;
 
 import static tech.tablesaw.plotly.components.Axis.Spikes.SpikeSnap.DATA;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +23,7 @@ public class Axis extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -45,6 +47,7 @@ public class Axis extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -52,7 +55,7 @@ public class Axis extends Component {
   }
 
   /**
-   * Determines whether or not the range of this axis is computed in relation to the input data. See
+   * Determines whether the range of this axis is computed in relation to the input data. See
    * `rangemode` for more info. If `range` is provided, then `autorange` is set to "False".
    */
   public enum AutoRange {
@@ -66,6 +69,7 @@ public class Axis extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -87,6 +91,7 @@ public class Axis extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -113,6 +118,7 @@ public class Axis extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -164,6 +170,7 @@ public class Axis extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -186,6 +193,7 @@ public class Axis extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -290,16 +298,10 @@ public class Axis extends Component {
     rangeSlider = builder.rangeSlider;
   }
 
-  @Override
-  public String asJavascript() {
-    return asJavascript("axis_template.html");
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
+  protected Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
     context.put("title", title);
-    context.put("titleFont", titleFont);
+    context.put("titlefont", titleFont);
     if (visible != DEFAULT_VISIBLE) context.put("visible", visible);
     if (!type.equals(DEFAULT_TYPE)) context.put("type", type);
     if (!color.equals(DEFAULT_COLOR)) context.put("color", color);
@@ -313,15 +315,15 @@ public class Axis extends Component {
       context.put("overlaying", overlaying);
     }
     if (!autoRange.equals(DEFAULT_AUTO_RANGE)) context.put("autoRange", autoRange);
-    context.put("rangeMode", rangeMode);
+    context.put("rangemode", rangeMode);
     if (range != null) {
       context.put("range", Utils.dataAsString(range));
     }
-    context.put("fixedRange", fixedRange);
+    context.put("fixedrange", fixedRange);
     if (scaleRatio != DEFAULT_SCALE_RATIO) context.put("scaleRatio", scaleRatio);
     if (!constrain.equals(DEFAULT_CONSTRAIN_RANGE)) context.put("constrain", constrain);
     if (constrainToward != null) {
-      context.put("constrainToward", constrainToward);
+      context.put("constraintoward", constrainToward);
     }
     if (spikes != null) {
       spikes.updateContext(context);
@@ -332,18 +334,18 @@ public class Axis extends Component {
     }
 
     if (categoryOrder != null) {
-      context.put("categoryOrder", categoryOrder);
+      context.put("categoryorder", categoryOrder);
     }
 
-    if (gridWidth != DEFAULT_GRID_WIDTH) context.put("gridWidth", gridWidth);
-    if (lineWidth != DEFAULT_LINE_WIDTH) context.put("lineWidth", lineWidth);
-    if (zeroLineWidth != DEFAULT_ZERO_LINE_WIDTH) context.put("zeroLineWidth", zeroLineWidth);
-    if (!lineColor.equals(DEFAULT_LINE_COLOR)) context.put("lineColor", lineColor);
-    if (!zeroLineColor.equals(DEFAULT_ZERO_LINE_COLOR)) context.put("zeroLineColor", zeroLineColor);
-    if (!gridColor.equals(DEFAULT_GRID_COLOR)) context.put("gridColor", gridColor);
-    if (showLine != DEFAULT_SHOW_LINE) context.put("showLine", showLine);
-    if (zeroLine != DEFAULT_ZERO_LINE) context.put("zeroLine", zeroLine);
-    if (showGrid != DEFAULT_SHOW_GRID) context.put("showGrid", showGrid);
+    if (gridWidth != DEFAULT_GRID_WIDTH) context.put("gridwidth", gridWidth);
+    if (lineWidth != DEFAULT_LINE_WIDTH) context.put("linewidth", lineWidth);
+    if (zeroLineWidth != DEFAULT_ZERO_LINE_WIDTH) context.put("zerolinewidth", zeroLineWidth);
+    if (!lineColor.equals(DEFAULT_LINE_COLOR)) context.put("linecolor", lineColor);
+    if (!zeroLineColor.equals(DEFAULT_ZERO_LINE_COLOR)) context.put("zerolinecolor", zeroLineColor);
+    if (!gridColor.equals(DEFAULT_GRID_COLOR)) context.put("gridcolor", gridColor);
+    if (showLine != DEFAULT_SHOW_LINE) context.put("showline", showLine);
+    if (zeroLine != DEFAULT_ZERO_LINE) context.put("zeroline", zeroLine);
+    if (showGrid != DEFAULT_SHOW_GRID) context.put("showgrid", showGrid);
     if (domain != null) {
       context.put("domain", String.format("[%.2f, %.2f]", domain[0], domain[1]));
     }
@@ -629,12 +631,12 @@ public class Axis extends Component {
     }
 
     private void updateContext(Map<String, Object> context) {
-      context.put("showSpikes", true);
-      context.put("spikeMode", mode);
-      context.put("spikeThickness", thickness);
-      context.put("spikeDash", dash);
-      context.put("spikeColor", color);
-      context.put("spikeSnap", snap);
+      context.put("showspikes", true);
+      context.put("spikemode", mode);
+      context.put("spikethickness", thickness);
+      context.put("spikedash", dash);
+      context.put("spikecolor", color);
+      context.put("spikesnap", snap);
     }
 
     public enum SpikeSnap {
@@ -647,6 +649,7 @@ public class Axis extends Component {
         this.value = value;
       }
 
+      @JsonValue
       @Override
       public String toString() {
         return value;
@@ -668,6 +671,7 @@ public class Axis extends Component {
         this.value = value;
       }
 
+      @JsonValue
       @Override
       public String toString() {
         return value;

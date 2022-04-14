@@ -1,18 +1,13 @@
-package tech.tablesaw.plotly;
+package tech.tablesaw.plotly.traces;
 
 import java.io.File;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import tech.tablesaw.plotly.components.Axis;
-import tech.tablesaw.plotly.components.Figure;
-import tech.tablesaw.plotly.components.Font;
-import tech.tablesaw.plotly.components.HoverLabel;
-import tech.tablesaw.plotly.components.Layout;
-import tech.tablesaw.plotly.components.Marker;
-import tech.tablesaw.plotly.components.Symbol;
-import tech.tablesaw.plotly.components.TickSettings;
-import tech.tablesaw.plotly.traces.ScatterTrace;
+import tech.tablesaw.plotly.Plot;
+import tech.tablesaw.plotly.components.*;
+
+import static tech.tablesaw.plotly.components.Config.ModeBarDisplay.NEVER;
 
 @Disabled
 public class ScatterTest {
@@ -26,9 +21,8 @@ public class ScatterTest {
   private final String[] labels = {"a", "b", "c", "d", "e", "f"};
 
   @Test
-  public void testAsJavascript() {
+  public void testAsJSON() {
     ScatterTrace trace = ScatterTrace.builder(x, y).text(labels).build();
-
     System.out.println(trace.asJavascript(1));
   }
 
@@ -38,14 +32,32 @@ public class ScatterTest {
     ScatterTrace trace =
         ScatterTrace.builder(x, y)
             .marker(
-                Marker.builder().size(12.0).symbol(Symbol.DIAMOND_TALL).color("#c68486").build())
+                Marker.builder().size(21.0)
+                        .symbol(Symbol.DIAMOND_TALL)
+                        .color("#c68486")
+                        .build())
             .mode(ScatterTrace.Mode.MARKERS)
             .text(labels)
+            .name("Test data")
             .build();
 
-    Figure figure = new Figure(trace);
-    File outputFile = Paths.get("testoutput/output.html").toFile();
-    Plot.show(figure, "target", outputFile);
+    Layout layout = Layout.builder()
+            .showLegend(true)
+            .title("Random Points")
+            .height(400)
+            .xAxis(Axis.builder()
+                    .title("x")
+                    .build())
+            .yAxis(Axis.builder().title("y").build())
+            .build();
+    Config config = Config.builder()
+            .displayLogo(false)
+            .setModeBarDisplay(NEVER)
+            .responsive(true)
+            .build();
+    Figure figure = new Figure(layout, config, trace);
+
+    Plot.show(figure, "target");
   }
 
   @Test
@@ -53,7 +65,11 @@ public class ScatterTest {
     Layout layout =
         Layout.builder()
             .title("test")
-            .titleFont(Font.builder().size(32).color("green").build())
+            .titleFont(
+                    Font.builder()
+                            .size(32)
+                            .color("green")
+                            .build())
             .showLegend(true)
             .height(700)
             .width(1200)
@@ -68,9 +84,7 @@ public class ScatterTest {
             .build();
 
     Figure figure = new Figure(layout, trace);
-    File outputFile = Paths.get("testoutput/output.html").toFile();
-
-    Plot.show(figure, "target", outputFile);
+    Plot.show(figure, "target");
   }
 
   @Test
@@ -129,9 +143,7 @@ public class ScatterTest {
         ScatterTrace.builder(x, y).mode(ScatterTrace.Mode.LINE_AND_MARKERS).build();
 
     Figure figure = new Figure(trace);
-    File outputFile = Paths.get("testoutput/output.html").toFile();
-
-    Plot.show(figure, "target", outputFile);
+    Plot.show(figure, "target");
   }
 
   @Test
@@ -141,8 +153,6 @@ public class ScatterTest {
         ScatterTrace.builder(x, y).mode(ScatterTrace.Mode.TEXT).text(labels).build();
 
     Figure figure = new Figure(trace);
-    File outputFile = Paths.get("testoutput/output.html").toFile();
-
-    Plot.show(figure, "target", outputFile);
+    Plot.show(figure, "target");
   }
 }

@@ -3,9 +3,10 @@ package tech.tablesaw.plotly.components;
 import static tech.tablesaw.plotly.components.TickSettings.DisplayRules.ALL;
 import static tech.tablesaw.plotly.components.TickSettings.ExponentFormat.B;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
+
 import java.util.Map;
-import tech.tablesaw.plotly.Utils;
 
 public class TickSettings {
 
@@ -26,6 +27,7 @@ public class TickSettings {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -43,6 +45,7 @@ public class TickSettings {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -61,6 +64,7 @@ public class TickSettings {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -80,6 +84,7 @@ public class TickSettings {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -100,6 +105,7 @@ public class TickSettings {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -172,42 +178,42 @@ public class TickSettings {
   }
 
   protected void updateContext(Map<String, Object> context) {
-    context.put("showTickLabels", showLabels);
-    context.put("tickLength", length);
-    context.put("tickWidth", width);
-    context.put("tickColor", color);
-    context.put("tickFont", tickFont);
+    context.put("showticklabels", showLabels);
+    context.put("ticklength", length);
+    context.put("tickwidth", width);
+    context.put("tickcolor", color);
+    context.put("tickfont", tickFont);
     context.put("ticks", placement);
     if (tickText != null) {
-      context.put("tickText", Utils.dataAsString(tickText));
+      context.put("ticktext", tickText);
     }
     if (nTicks != 0) {
-      context.put("nTicks", nTicks);
+      context.put("nticks", nTicks);
     }
     if (dTick != null) {
-      context.put("dTick", dTick);
+      context.put("dtick", dTick);
     }
     if (tick0 != null) {
       context.put("tick0", tick0);
     }
     if (showExponent != ALL) {
-      context.put("showExponent", showExponent);
+      context.put("showexponent", showExponent);
     }
     if (exponentFormat != B) {
-      context.put("exponentFormat", exponentFormat);
+      context.put("exponentformat", exponentFormat);
     }
     if (tickValues != null) {
-      context.put("tickValues", Utils.dataAsString(tickValues));
+      context.put("tickvalues", tickValues);
     }
     context.put("mirror", mirror);
     context.put("prefix", prefix);
     context.put("suffix", suffix);
-    context.put("showPrefix", showPrefix);
-    context.put("showSuffix", showSuffix);
+    context.put("showprefix", showPrefix);
+    context.put("showsuffix", showSuffix);
     context.put("angle", angle);
-    context.put("autoMargin", autoMargin);
-    context.put("tickMode", tickMode);
-    context.put("separateThousands", separateThousands);
+    context.put("automargin", autoMargin);
+    context.put("tickmode", tickMode);
+    context.put("separatethousands", separateThousands);
   }
 
   public static TickSettingsBuilder builder() {

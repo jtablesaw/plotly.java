@@ -1,5 +1,6 @@
 package tech.tablesaw.plotly.components;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
@@ -44,6 +45,7 @@ public class Layout {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -72,6 +74,7 @@ public class Layout {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -96,6 +99,7 @@ public class Layout {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -119,9 +123,6 @@ public class Layout {
    * width or height is always initialized on the first call to plot.
    */
   private final boolean autoSize;
-
-  private final boolean heightSet;
-  private final boolean widthSet;
 
   /** The width of the plot in pixels */
   private final int width;
@@ -182,8 +183,6 @@ public class Layout {
   private Layout(LayoutBuilder builder) {
     this.title = builder.title;
     this.autoSize = builder.autoSize;
-    this.widthSet = builder.widthSet;
-    this.heightSet = builder.heightSet;
     this.decimalSeparator = builder.decimalSeparator;
     this.thousandsSeparator = builder.thousandsSeparator;
     this.dragMode = builder.dragMode;
@@ -235,15 +234,19 @@ public class Layout {
       context.put("autosize", autoSize);
       // since autosize is true, we assume the default width / height values are not wanted, not
       // serialize them, and let Plotly compute them
-      if (widthSet) {
+      if (width > 0) {
         context.put("width", width);
       }
-      if (heightSet) {
+      if (height > 0) {
         context.put("height", height);
       }
     } else {
-      context.put("width", width);
-      context.put("height", height);
+      if (width > 0) {
+        context.put("width", width);
+      }
+      if (height > 0) {
+        context.put("height", height);
+      }
     }
     if (hoverDistance != DEFAULT_HOVER_DISTANCE) context.put("hoverdistance", hoverDistance);
     if (!hoverMode.equals(DEFAULT_HOVER_MODE)) context.put("hoverMode", hoverMode);
@@ -321,14 +324,11 @@ public class Layout {
      */
     private boolean autoSize = false;
 
-    private boolean widthSet = false;
-    private boolean heightSet = false;
-
     /** The width of the plot in pixels */
-    private int width = 700;
+    private int width = -1;
 
     /** The height of the plot in pixels */
-    private int height = 450;
+    private int height = -1;
 
     /** Sets the margins around the plot */
     private Margin margin;
@@ -431,13 +431,11 @@ public class Layout {
 
     public LayoutBuilder height(int height) {
       this.height = height;
-      this.heightSet = true;
       return this;
     }
 
     public LayoutBuilder width(int width) {
       this.width = width;
-      this.widthSet = true;
       return this;
     }
 

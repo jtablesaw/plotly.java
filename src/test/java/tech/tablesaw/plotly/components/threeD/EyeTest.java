@@ -19,6 +19,6 @@ public class EyeTest {
 
   @Test
   public void eyeBuilder() {
-    assertEquals(javaScript, Eye.eyeBuilder(1, 2, 3).build().asJavascript());
+    assertEquals(javaScript, Eye.eyeBuilder(1, 2, 3).build().asJSON());
   }
 }

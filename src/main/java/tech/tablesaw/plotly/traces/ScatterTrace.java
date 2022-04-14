@@ -1,7 +1,6 @@
 package tech.tablesaw.plotly.traces;
 
-import static tech.tablesaw.plotly.Utils.dataAsString;
-
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
@@ -9,12 +8,15 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.Map;
+
+import tech.tablesaw.plotly.Utils;
 import tech.tablesaw.plotly.components.HoverLabel;
 import tech.tablesaw.plotly.components.Line;
 import tech.tablesaw.plotly.components.Marker;
-import tech.tablesaw.plotly.components.change.Decreasing;
-import tech.tablesaw.plotly.components.change.Increasing;
+import tech.tablesaw.plotly.change.Decreasing;
+import tech.tablesaw.plotly.change.Increasing;
 
 public class ScatterTrace extends AbstractTrace {
 
@@ -36,6 +38,7 @@ public class ScatterTrace extends AbstractTrace {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -54,6 +57,7 @@ public class ScatterTrace extends AbstractTrace {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -129,27 +133,27 @@ public class ScatterTrace extends AbstractTrace {
     context.put("variableName", "trace" + i);
     context.put("mode", mode);
     if (x != null) {
-      context.put("x", dataAsString(x));
+      context.put("x", Arrays.toString(x));
     }
     if (y != null) {
-      context.put("y", dataAsString(y));
+      context.put("y", Arrays.toString(y));
     }
 
     // for pricing data (candlesticks and OHLC)
     if (open != null) {
-      context.put("open", dataAsString(open));
+      context.put("open", open);
     }
     if (high != null) {
-      context.put("high", dataAsString(high));
+      context.put("high", high);
     }
     if (low != null) {
-      context.put("low", dataAsString(low));
+      context.put("low", low);
     }
     if (close != null) {
-      context.put("close", dataAsString(close));
+      context.put("close", close);
     }
     if (whiskerWidth != DEFAULT_WHISKER_WIDTH) {
-      context.put("whiskerWidth", whiskerWidth);
+      context.put("whiskerwidth", whiskerWidth);
     }
     if (increasing != null) {
       context.put("increasing", increasing);
@@ -158,7 +162,7 @@ public class ScatterTrace extends AbstractTrace {
       context.put("decreasing", decreasing);
     }
     if (yAxis != null) {
-      context.put("yAxis", yAxis);
+      context.put("yaxis", yAxis);
     }
 
     context.put("marker", marker);
@@ -167,16 +171,16 @@ public class ScatterTrace extends AbstractTrace {
       context.put("fill", fill);
     }
     if (fillColor != null) {
-      context.put("fillColor", fillColor);
+      context.put("fillcolor", fillColor);
     }
     if (hoverLabel != null) {
-      context.put("hoverlabel", hoverLabel.asJavascript());
+      context.put("hoverlabel", hoverLabel.asJSON());
     }
     if (line != null) {
-      context.put("line", line.asJavascript());
+      context.put("line", line.asJSON());
     }
     if (text != null) {
-      context.put("text", dataAsString(text));
+      context.put("text", Arrays.toString(Utils.dataAsArrayofStrings(text)));
     }
     return context;
   }
@@ -214,6 +218,7 @@ public class ScatterTrace extends AbstractTrace {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;

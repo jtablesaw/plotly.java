@@ -19,6 +19,6 @@ public class UpTest {
 
   @Test
   public void upBuilder() {
-    assertEquals(javaScript, Up.upBuilder(1, 2, 3).build().asJavascript());
+    assertEquals(javaScript, Up.upBuilder(1, 2, 3).build().asJSON());
   }
 }

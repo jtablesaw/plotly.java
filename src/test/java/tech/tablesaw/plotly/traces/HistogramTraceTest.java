@@ -1,7 +1,8 @@
-package tech.tablesaw.plotly;
+package tech.tablesaw.plotly.traces;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.components.Figure;
 import tech.tablesaw.plotly.components.Layout;
 import tech.tablesaw.plotly.traces.HistogramTrace;
@@ -13,7 +14,7 @@ public class HistogramTraceTest {
   private final double[] y2 = {3, 11, 19, 14, 11, 14, 5, 24, -4, 10, 15, 6, 5, 18};
 
   @Test
-  public void testAsJavascript() {
+  public void testAsJSON() {
     HistogramTrace trace1 = HistogramTrace.builder(y1).build();
     System.out.println(trace1.asJavascript(1));
   }

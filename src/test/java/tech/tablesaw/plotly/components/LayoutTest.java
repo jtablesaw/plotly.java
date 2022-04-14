@@ -10,7 +10,7 @@ public class LayoutTest {
   private static final String LINE_END = System.lineSeparator();
 
   // @Test
-  public void asJavascript() {
+  public void asJSON() {
 
     Axis x = Axis.builder().title("x axis").build();
     Axis y = Axis.builder().title("y axis").build();

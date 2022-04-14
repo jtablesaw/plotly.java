@@ -5,19 +5,20 @@ import com.google.common.base.Preconditions;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This is to supply annotation in Plot.ly reference to
+ * https://plotly.com/javascript/reference/layout/annotations/. Support most of
+ * apis there.
+ */
 public class Annotation extends Component {
-
-  /**
-   * This is to supply annotation in Plot.ly reference to
-   * https://plotly.com/javascript/reference/layout/annotations/. Support most of
-   * apis there.
-   */
 
   /**
    * The horizontal alignment of the 'text' within the box.
    */
   public enum Align {
-    LEFT("left"), CENTER("center"), RIGHT("right");
+    LEFT("left"),
+    CENTER("center"),
+    RIGHT("right");
 
     private final String value;
 
@@ -36,7 +37,9 @@ public class Annotation extends Component {
    * The vertical alignment of the 'text' within the box.
    */
   public enum Valign {
-    TOP("top"), MIDDLE("middle"), BOTTOM("bottom");
+    TOP("top"),
+    MIDDLE("middle"),
+    BOTTOM("bottom");
 
     private final String value;
 
@@ -84,7 +87,9 @@ public class Annotation extends Component {
   }
 
   public enum ClicktoShow {
-    FALSE(), ONOFF("onoff"), ONOUT("onout");
+    FALSE(),
+    ONOFF("onoff"),
+    ONOUT("onout");
 
     private final String value;
 
@@ -220,13 +225,7 @@ public class Annotation extends Component {
     this.templateitemname = builder.templateitemname;
   }
 
-  @Override
-  public String asJavascript() {
-    return asJavascript("annotation_template.html");
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
+  protected Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
     if (DEFAULT_VISIBLE != visible)
       context.put("visible", visible);

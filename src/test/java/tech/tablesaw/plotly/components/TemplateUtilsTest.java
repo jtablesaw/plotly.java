@@ -42,7 +42,7 @@ public class TemplateUtilsTest {
     Trace trace = ScatterTrace.builder(x, y).build();
     Figure figure = new Figure(trace);
     Page page = new PageBuilder(figure, "plot").build();
-    String html = page.asJavascript();
+    String html = page.asJSON();
     return html;
   }
 }

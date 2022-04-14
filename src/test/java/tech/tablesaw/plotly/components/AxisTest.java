@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class AxisTest {
 
   @Test
-  public void asJavascript() {
+  public void asJSON() {
     Axis x =
         Axis.builder()
             .title("x Axis 1")

@@ -1,9 +1,10 @@
-package tech.tablesaw.plotly;
+package tech.tablesaw.plotly.traces;
 
 import java.io.File;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.components.Figure;
 import tech.tablesaw.plotly.traces.PieTrace;
 
@@ -14,7 +15,7 @@ public class PieTest {
   private final double[] y = {1, 4, 9, 16};
 
   @Test
-  public void testAsJavascript() {
+  public void testAsJSON() {
     PieTrace trace = PieTrace.builder(x, y).build();
     System.out.println(trace.asJavascript(1));
   }

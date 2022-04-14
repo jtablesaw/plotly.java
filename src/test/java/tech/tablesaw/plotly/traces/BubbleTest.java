@@ -11,10 +11,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tech.tablesaw.plotly;
+package tech.tablesaw.plotly.traces;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.components.Figure;
 import tech.tablesaw.plotly.components.Marker;
 import tech.tablesaw.plotly.components.Symbol;
@@ -25,10 +26,10 @@ public class BubbleTest {
 
   private final double[] x = {1, 2, 3, 4, 5, 6};
   private final double[] y = {0, 1, 6, 14, 25, 39};
-  private final double[] size = {10, 33, 21, 40, 28, 16};
+  private final double[] size = {10.0, 33.0, 21.0, 40.0, 28.0, 16.0};
 
   @Test
-  public void testAsJavascript() {
+  public void testAsJSON() {
     ScatterTrace trace =
         ScatterTrace.builder(x, y).marker(Marker.builder().size(size).build()).build();
     System.out.println(trace.asJavascript(1));
@@ -42,9 +43,9 @@ public class BubbleTest {
             .marker(
                 Marker.builder()
                     .size(size)
-                    .colorScale(Marker.Palette.CIVIDIS)
                     .opacity(.5)
                     .showScale(true)
+                    .colorScale(Marker.Palette.GREENS)
                     .symbol(Symbol.DIAMOND_TALL)
                     .build())
             .build();

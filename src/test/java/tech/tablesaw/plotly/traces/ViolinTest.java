@@ -1,9 +1,10 @@
-package tech.tablesaw.plotly;
+package tech.tablesaw.plotly.traces;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.components.Figure;
 import tech.tablesaw.plotly.traces.ViolinTrace;
 

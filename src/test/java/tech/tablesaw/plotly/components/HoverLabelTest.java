@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class HoverLabelTest {
 
   @Test
-  public void asJavascript() {
+  public void asJSON() {
     HoverLabel x =
         HoverLabel.builder()
             .nameLength(10)

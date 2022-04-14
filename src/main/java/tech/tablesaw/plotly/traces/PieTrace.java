@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.Map;
+
 import tech.tablesaw.plotly.Utils;
 import tech.tablesaw.plotly.components.Domain;
 
@@ -23,7 +25,6 @@ public class PieTrace extends AbstractTrace {
     this.domain = builder.domain;
   }
 
-  @Override
   public String asJavascript(int i) {
     Writer writer = new StringWriter();
     PebbleTemplate compiledTemplate;
@@ -43,12 +44,12 @@ public class PieTrace extends AbstractTrace {
 
     Map<String, Object> context = super.getContext();
     context.put("variableName", "trace" + i);
-    context.put("values", Utils.dataAsString(values));
+    context.put("values", Arrays.toString(values));
     if (labels != null) {
-      context.put("labels", Utils.dataAsString(labels));
+      context.put("labels", Arrays.toString(Utils.dataAsArrayofStrings(labels)));
     }
     if (domain != null) {
-      context.put("domain", domain.asJavascript());
+      context.put("domain", domain.asJSON());
     }
     return context;
   }

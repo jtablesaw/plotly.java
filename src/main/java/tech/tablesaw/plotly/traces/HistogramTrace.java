@@ -1,11 +1,13 @@
 package tech.tablesaw.plotly.traces;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.Map;
 import tech.tablesaw.plotly.Utils;
 import tech.tablesaw.plotly.components.Marker;
@@ -36,6 +38,7 @@ public class HistogramTrace extends AbstractTrace {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -55,6 +58,7 @@ public class HistogramTrace extends AbstractTrace {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -109,16 +113,16 @@ public class HistogramTrace extends AbstractTrace {
     Map<String, Object> context = super.getContext();
     context.put("variableName", "trace" + i);
     if (x != null) {
-      context.put("x", Utils.dataAsString(x));
+      context.put("x", Arrays.toString(x));
     }
     if (y != null) {
-      context.put("y", Utils.dataAsString(y));
+      context.put("y", Arrays.toString(y));
     }
     context.put("opacity", opacity);
-    context.put("nBinsX", nBinsX);
-    context.put("nBinsY", nBinsY);
-    context.put("autoBinX", autoBinX);
-    context.put("autoBinY", autoBinY);
+    if (nBinsX != 0) context.put("nbinsx", nBinsX);
+    if (nBinsY != 0) context.put("nbinsy", nBinsY);
+    context.put("autobinx", autoBinX);
+    context.put("autobiny", autoBinY);
     context.put("histnorm", histNorm);
     context.put("histfunc", histFunc);
     if (marker != null) {
@@ -126,15 +130,17 @@ public class HistogramTrace extends AbstractTrace {
     }
 
     return context;
+
   }
+
 
   public static class HistogramBuilder extends TraceBuilder {
 
     private final String type = "histogram";
     private int nBinsX;
     private int nBinsY;
-    private boolean autoBinX;
-    private boolean autoBinY;
+    private boolean autoBinX = true;
+    private boolean autoBinY = true;
     private boolean horizontal = false;
     private Object[] x;
     private Object[] y;

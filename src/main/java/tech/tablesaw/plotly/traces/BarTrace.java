@@ -2,6 +2,7 @@ package tech.tablesaw.plotly.traces;
 
 import static tech.tablesaw.plotly.Utils.dataAsString;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.Map;
+
 import tech.tablesaw.plotly.components.Marker;
 
 public class BarTrace extends AbstractTrace {
@@ -74,6 +76,7 @@ public class BarTrace extends AbstractTrace {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;

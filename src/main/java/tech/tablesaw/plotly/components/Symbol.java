@@ -1,5 +1,7 @@
 package tech.tablesaw.plotly.components;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * symbol ( "circle-open" | "circle-dot" | "circle-open-dot" "square-open" | "square-dot" |
  * "square-open-dot" "diamond-open" | "diamond-dot" | "diamond-open-dot" "cross-open" | "cross-dot"
@@ -95,6 +97,7 @@ public enum Symbol {
     this.value = value;
   }
 
+  @JsonValue
   @Override
   public String toString() {
     return value;

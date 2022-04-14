@@ -2,6 +2,7 @@ package tech.tablesaw.plotly.traces;
 
 import static tech.tablesaw.plotly.Utils.dataAsString;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
@@ -50,7 +51,7 @@ public class Scatter3DTrace extends AbstractTrace {
       context.put("marker", marker);
     }
     if (hoverLabel != null) {
-      context.put("hoverlabel", hoverLabel.asJavascript());
+      context.put("hoverlabel", hoverLabel.asJSON());
     }
     if (text != null) {
       context.put("text", dataAsString(text));
@@ -91,6 +92,7 @@ public class Scatter3DTrace extends AbstractTrace {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;

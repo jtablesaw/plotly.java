@@ -19,6 +19,6 @@ public class CenterTest {
 
   @Test
   public void centerBuilder() {
-    assertEquals(javaScript, Center.centerBuilder(1, 2, 3).build().asJavascript());
+    assertEquals(javaScript, Center.centerBuilder(1, 2, 3).build().asJSON());
   }
 }

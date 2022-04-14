@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 public class MarkerTest {
 
   @Test
-  public void asJavascript() {
+  public void asJSON() {
     Marker x = Marker.builder().size(12.0).symbol(Symbol.DIAMOND_TALL).color("#c68486").build();
 
-    assertTrue(x.asJavascript().contains("color"));
-    assertTrue(x.asJavascript().contains("symbol"));
-    assertTrue(x.asJavascript().contains("size"));
+    assertTrue(x.asJSON().contains("color"));
+    assertTrue(x.asJSON().contains("symbol"));
+    assertTrue(x.asJSON().contains("size"));
   }
 }

@@ -1,5 +1,6 @@
 package tech.tablesaw.plotly.components;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +44,7 @@ public class ColorBar extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -59,6 +61,7 @@ public class ColorBar extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -76,6 +79,7 @@ public class ColorBar extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -93,6 +97,7 @@ public class ColorBar extends Component {
       this.value = value;
     }
 
+    @JsonValue
     @Override
     public String toString() {
       return value;
@@ -151,15 +156,10 @@ public class ColorBar extends Component {
   }
 
   @Override
-  public String asJavascript() {
-    return asJavascript("colorbar_template.html");
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
+  protected Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
-    if (!thicknessMode.equals(DEFAULT_THICKNESS_MODE)) context.put("thicknessMode", thicknessMode);
-    if (!lenMode.equals(DEFAULT_LEN_MODE)) context.put("lenMode", lenMode);
+    if (!thicknessMode.equals(DEFAULT_THICKNESS_MODE)) context.put("thicknessmode", thicknessMode);
+    if (!lenMode.equals(DEFAULT_LEN_MODE)) context.put("lenmode", lenMode);
 
     if (len != DEFAULT_LEN) context.put("len", len);
     if (thickness != DEFAULT_THICKNESS) context.put("thickness", thickness);
@@ -167,18 +167,18 @@ public class ColorBar extends Component {
     if (x != DEFAULT_X) context.put("x", x);
     if (y != DEFAULT_Y) context.put("y", y);
 
-    if (xPad != DEFAULT_X_PAD) context.put("xPad", xPad);
-    if (yPad != DEFAULT_Y_PAD) context.put("yPad", yPad);
+    if (xPad != DEFAULT_X_PAD) context.put("xpad", xPad);
+    if (yPad != DEFAULT_Y_PAD) context.put("ypad", yPad);
 
-    if (borderWidth != DEFAULT_BORDER_WIDTH) context.put("borderWidth", borderWidth);
-    if (outlineWidth != DEFAULT_OUTLINE_WIDTH) context.put("outlineWidth", outlineWidth);
+    if (borderWidth != DEFAULT_BORDER_WIDTH) context.put("borderwidth", borderWidth);
+    if (outlineWidth != DEFAULT_OUTLINE_WIDTH) context.put("outlinewidth", outlineWidth);
 
-    if (!xAnchor.equals(DEFAULT_X_ANCHOR)) context.put("xAnchor", xAnchor);
-    if (!yAnchor.equals(DEFAULT_Y_ANCHOR)) context.put("yAnchor", yAnchor);
+    if (!xAnchor.equals(DEFAULT_X_ANCHOR)) context.put("xanchor", xAnchor);
+    if (!yAnchor.equals(DEFAULT_Y_ANCHOR)) context.put("yanchor", yAnchor);
 
-    if (!outlineColor.equals(DEFAULT_OUTLINE_COLOR)) context.put("outlineColor", outlineColor);
-    if (!borderColor.equals(DEFAULT_BORDER_COLOR)) context.put("borderColor", borderColor);
-    if (!bgColor.equals(DEFAULT_BG_COLOR)) context.put("bgColor", bgColor);
+    if (!outlineColor.equals(DEFAULT_OUTLINE_COLOR)) context.put("outlinecolor", outlineColor);
+    if (!borderColor.equals(DEFAULT_BORDER_COLOR)) context.put("bordercolor", borderColor);
+    if (!bgColor.equals(DEFAULT_BG_COLOR)) context.put("bgcolor", bgColor);
 
     if (tickSettings != null) tickSettings.updateContext(context);
     return context;

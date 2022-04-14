@@ -3,8 +3,8 @@ package tech.tablesaw.plotly.components;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import tech.tablesaw.plotly.components.change.ChangeLine;
-import tech.tablesaw.plotly.components.change.Increasing;
+import tech.tablesaw.plotly.change.ChangeLine;
+import tech.tablesaw.plotly.change.Increasing;
 
 public class ChangeTest {
 
@@ -17,10 +17,10 @@ public class ChangeTest {
             .fillColor("444")
             .build();
 
-    assertTrue(increasing.asJavascript().contains("line"));
-    assertTrue(increasing.asJavascript().contains("color"));
-    assertTrue(increasing.asJavascript().contains("width"));
-    assertTrue(increasing.asJavascript().contains("fillcolor"));
+    assertTrue(increasing.asJSON().contains("line"));
+    assertTrue(increasing.asJSON().contains("color"));
+    assertTrue(increasing.asJSON().contains("width"));
+    assertTrue(increasing.asJSON().contains("fillcolor"));
   }
 
   @Test
@@ -28,7 +28,7 @@ public class ChangeTest {
 
     ChangeLine line = ChangeLine.builder().width(4).color("444").build();
 
-    assertTrue(line.asJavascript().contains("color"));
-    assertTrue(line.asJavascript().contains("width"));
+    assertTrue(line.asJSON().contains("color"));
+    assertTrue(line.asJSON().contains("width"));
   }
 }

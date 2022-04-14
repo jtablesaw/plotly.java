@@ -45,7 +45,7 @@ public class Line extends Component {
   }
 
   @Override
-  public Map<String, Object> getContext() {
+  public Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
     context.put("color", color);
     context.put("width", width);
@@ -54,16 +54,6 @@ public class Line extends Component {
     context.put("dash", dash);
     context.put("simplify", simplify);
     return context;
-  }
-
-  @Override
-  protected Map<String, Object> getJSONContext() {
-    return getContext();
-  }
-
-  @Override
-  public String asJavascript() {
-    return asJSON();
   }
 
   /**

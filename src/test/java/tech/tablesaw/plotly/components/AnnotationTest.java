@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 @Disabled
 public class AnnotationTest {
   @Test
-  public void asJavascript() {
+  public void asJSON() {
     Annotation annotation =
         Annotation.builder()
             .xref("paper")
@@ -19,7 +19,7 @@ public class AnnotationTest {
             .text("X asis label")
             .showarrow(false)
             .build();
-    System.out.println(annotation.asJavascript());
+    System.out.println(annotation.asJSON());
   }
 
   @Test
@@ -43,6 +43,6 @@ public class AnnotationTest {
             .font(Font.builder().color("rgba(0,0,0,0)").build())
             .showarrow(true)
             .build();
-    System.out.println(annotation.asJavascript());
+    System.out.println(annotation.asJSON());
   }
 }

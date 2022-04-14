@@ -191,8 +191,8 @@ public class Figure {
 
     private Layout layout;
     private Config config;
-    private List<Trace> traces = new ArrayList<>();
-    private List<EventHandler> eventHandlers = new ArrayList<>();
+    private final List<Trace> traces = new ArrayList<>();
+    private final List<EventHandler> eventHandlers = new ArrayList<>();
 
     public FigureBuilder layout(Layout layout) {
       this.layout = layout;

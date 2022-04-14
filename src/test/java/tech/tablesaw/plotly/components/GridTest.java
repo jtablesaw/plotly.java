@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class GridTest {
 
   @Test
-  public void asJavascript() {
+  public void asJSON() {
     Grid x =
         Grid.builder()
             .rows(10)
@@ -16,7 +16,7 @@ public class GridTest {
             .pattern(Grid.Pattern.INDEPENDENT)
             .build();
 
-    String asJavascript = x.asJavascript();
+    String asJavascript = x.asJSON();
     assertTrue(asJavascript.contains("rows"));
     assertTrue(asJavascript.contains("columns"));
     assertTrue(asJavascript.contains("roworder"));

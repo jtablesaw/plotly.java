@@ -17,17 +17,12 @@ public class Camera extends Component {
   }
 
   @Override
-  protected Map<String, Object> getContext() {
+  protected Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
     context.put("up", up);
     context.put("eye", eye);
     context.put("center", center);
     return context;
-  }
-
-  @Override
-  public String asJavascript() {
-    return asJavascript("camera_template.html");
   }
 
   public CameraBuilder cameraBuilder() {

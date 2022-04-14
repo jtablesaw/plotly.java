@@ -1,4 +1,4 @@
-package tech.tablesaw.plotly.components.change;
+package tech.tablesaw.plotly.change;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,11 +11,6 @@ public abstract class Change extends Component {
   private final ChangeLine changeLine;
   private final String fillColor;
 
-  @Override
-  public String asJavascript() {
-    return asJSON();
-  }
-
   Change(ChangeBuilder builder) {
     this.changeLine = builder.changeLine;
     this.fillColor = builder.fillColor;
@@ -27,11 +22,6 @@ public abstract class Change extends Component {
     if (changeLine != null) context.put("line", changeLine.getJSONContext());
     if (fillColor != null) context.put("fillcolor", fillColor);
     return context;
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
-    return getJSONContext();
   }
 
   public static class ChangeBuilder {

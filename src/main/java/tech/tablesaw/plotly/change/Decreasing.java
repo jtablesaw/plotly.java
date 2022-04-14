@@ -1,4 +1,4 @@
-package tech.tablesaw.plotly.components.change;
+package tech.tablesaw.plotly.change;
 
 public class Decreasing extends Change {
 

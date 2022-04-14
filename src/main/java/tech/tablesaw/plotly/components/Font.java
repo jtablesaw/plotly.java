@@ -54,22 +54,12 @@ public class Font extends Component {
   }
 
   @Override
-  public String asJavascript() {
-    return asJSON();
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
+  protected Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
     context.put("size", size);
     context.put("family", fontFamily);
     context.put("color", color);
     return context;
-  }
-
-  @Override
-  protected Map<String, Object> getJSONContext() {
-    return getContext();
   }
 
   public static class FontBuilder {
@@ -113,7 +103,6 @@ public class Font extends Component {
 
   @Override
   public int hashCode() {
-
     return Objects.hash(fontFamily, size, color);
   }
 }

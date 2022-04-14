@@ -37,12 +37,7 @@ public class Margin extends Component {
   }
 
   @Override
-  public String asJavascript() {
-    return asJSON();
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
+  protected Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
     context.put("t", top);
     context.put("b", bottom);
@@ -51,11 +46,6 @@ public class Margin extends Component {
     context.put("pad", pad);
     context.put("autoexpand", autoExpand);
     return context;
-  }
-
-  @Override
-  protected Map<String, Object> getJSONContext() {
-    return getContext();
   }
 
   public static class MarginBuilder {

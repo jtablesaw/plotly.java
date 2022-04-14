@@ -28,7 +28,8 @@ public class Scene extends Component {
     this.camera = builder.camera;
   }
 
-  protected Map<String, Object> getContext() {
+  @Override
+  protected Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
     if (xAxis != null) {
       context.put("xAxis", xAxis);
@@ -49,6 +50,7 @@ public class Scene extends Component {
     return new Scene.SceneBuilder();
   }
 
+/*
   @Override
   public String asJavascript() {
     Writer writer = new StringWriter();
@@ -63,6 +65,7 @@ public class Scene extends Component {
     }
     return writer.toString();
   }
+*/
 
   public static class SceneBuilder {
 

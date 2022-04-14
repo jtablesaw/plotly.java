@@ -1,9 +1,10 @@
-package tech.tablesaw.plotly;
+package tech.tablesaw.plotly.traces;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.components.Figure;
 import tech.tablesaw.plotly.traces.BoxTrace;
 
@@ -27,7 +28,7 @@ class BoxTest {
   private final double[] y = {1, 4, 9, 16, 3, 6, 8, 8, 2, 4, 7, 11};
 
   @Test
-  void testAsJavascript() {
+  void testAsJSON() {
     BoxTrace trace = BoxTrace.builder(x, y).build();
     assertNotNull(trace.asJavascript(1));
   }

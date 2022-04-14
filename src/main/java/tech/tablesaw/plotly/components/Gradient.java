@@ -35,17 +35,7 @@ public class Gradient extends Component {
   }
 
   @Override
-  public String asJavascript() {
-    return asJSON();
-  }
-
-  @Override
   protected Map<String, Object> getJSONContext() {
-    return getContext();
-  }
-
-  @Override
-  protected Map<String, Object> getContext() {
     Map<String, Object> context = new HashMap<>();
     context.put("type", type);
     if (color != null && color.length > 0) {
