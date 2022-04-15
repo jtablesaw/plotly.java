@@ -3,9 +3,9 @@ Plotly.java is a third-party Java wrapper for the [Plotly JavaScript open source
 
 ### Project history
 
-Plotly.java was developed as part of the [Tablesaw Java dataframe library](https://github.com/jtablesaw/tablesaw). Work began four years ago (in 2018), with the goal of creating a tool for exploratory data analysis in Java that would complement the dataframe itself. It has been used since then in numerous projects. 
+Plotly.java was developed as part of the [Tablesaw Java dataframe library](https://github.com/jtablesaw/tablesaw). Work began four years ago (in 2018), to create a tool for exploratory data analysis that would complement the dataframe itself. It has been used since then in numerous projects. 
 
-Dependencies on Tablesaw have  been removed to make it easier to incorporate visualizations into a broad range of Java applications, but it remains a key part of the Tablesaw data wrangling solution. If you need to plot data from a CSV, Excel file, database, JSON, etc., we strongly recommend you take a look at [Tablesaw](https://github.com/jtablesaw/tablesaw) for data ingestion and transformation support. 
+All dependencies on Tablesaw have  been removed to make it easier to incorporate visualizations into a broad range of Java applications, but it remains a key part of the Tablesaw data wrangling solution. If you need to plot data from a CSV, Excel file, database, JSON, etc., we strongly recommend you take a look at [Tablesaw](https://github.com/jtablesaw/tablesaw) for data ingestion and transformation support. 
 
 ## Plots created with plotly.java
 
@@ -99,12 +99,12 @@ See the Plot class for more information on the other varieties.
 
 #### Render a plot in a Jupyter Notebook
 
-There are several ways to use plotly.java in a Jupyter Notebook using one of several Java kernals for Jupyter. Examples for using the older Tablesaw version plotly.java are show on the Tablesaw page. 
+You can use plotly.java in a [Jupyter Notebook](https://jupyter.org/) with one of several Java kernals for Jupyter. While we don't yet have documentation for using this library, examples for using the older Tablesaw version plotly.java should help get you started. 
 
-- Using the Beaker kernal:
-- Using 
+- To use the Beakerx kernal, see these instructions for [installing BeakerX](http://beakerx.com/documentation) and trying [the sample Tablesaw notebook](https://github.com/twosigma/beakerx/blob/master/doc/groovy/Tablesaw.ipynb)
+- To use the [IJava](https://github.com/SpencerPark/IJava) kernal, which has built-in support for Tablesaw, see this [tutorial](https://medium.com/@gmsharpe/java-jupyter-plotly-e1bbaa7f2be8) by Gary Sharpe that shows you how to use Tablesaw plots. Gary has written a number of other tutorials that feature Tablesaw.
 
-## To get started:
+## To get started
 
 Add tablesaw-plotly-java to your project. You can find the version number for the latest release in the [release notes](https://github.com/jtablesaw/tablesaw/releases):
 
