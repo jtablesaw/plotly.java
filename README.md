@@ -7,51 +7,47 @@ Plotly.java was developed as part of the [Tablesaw Java dataframe library](https
 
 All dependencies on Tablesaw have  been removed to make it easier to incorporate visualizations into a broad range of Java applications, but it remains a key part of the Tablesaw data wrangling solution. If you need to plot data from a CSV, Excel file, database, JSON, etc., we strongly recommend you take a look at [Tablesaw](https://github.com/jtablesaw/tablesaw) for data ingestion and transformation support. 
 
-## Plots created with plotly.java
+## An Example
 
-Here are some examples of plots that were created using plotly.java. 
+Here's a simple example that creates a Bubble Plot, with diamond-shaped markers. Two double arrays are used to specify the x and y coordinates. A third sets the size of the bubble. Colors are defined by the color scale shown at the left, which is applied to the y coordinates of each point.
 
+![](D:\projects\plotly.java\docs\images\examplePlot.png)
 
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/box1.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scatter_2_Yaxes.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/tornado.scatter.png) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_time_series2.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/hist_overlay.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/histogram2.png) |
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/histogram2d.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/pie.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_3d.png) |
-| ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_with_groups.png) | ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/robberies_area.png) | ![](https://jtablesaw.github.io/tablesaw/userguide/images/ml/regression/wins%20by%20year.png) |
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_heatmap1.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tornado_bar_groups.png) | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/ohlc1.png) |
-
-## An Example:
-
-Here's a simple example that creates an Area Plot. Two data arrays are used to specify the x and y coordinates. 
+The code to create this image is shown below.
 
 ```java
-package tech.tablesaw.examples;
-
 import tech.tablesaw.plotly.Plot;
-import tech.tablesaw.plotly.components.Figure;
-import tech.tablesaw.plotly.components.Layout;
+import tech.tablesaw.plotly.components.*;
 import tech.tablesaw.plotly.traces.ScatterTrace;
 
-public class AreaPlotExample {
+class Scratch {
 
-  /** Creates a simple area plot with an index (observation number) x axis */
-  public static void main(String[] args) throws Exception {
+    private static final double[] x = {1, 2, 3, 4, 5, 6};
+    private static final double[] y = {0, 1, 6, 14, 25, 39};
+    private static final double[] size = {10.0, 33.0, 21.0, 40.0, 28.0, 16.0};
 
-    String title = "Boston Robberies: 1966-1967";
-    double[] observation = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0};
-    double[] count = {41.0, 39.0, 50.0, 40.0, 43.0, 38.0, 44.0, 35.0, 39.0, 35.0, 29.0, 49.0};
-
-    Layout layout = Layout.builder(title, "Month", "Robberies").build();
-    ScatterTrace trace =
-            ScatterTrace.builder(observation, count)
-                    .mode(ScatterTrace.Mode.LINE)
-                    .fill(ScatterTrace.Fill.TO_NEXT_Y)
-                    .fillColor("#b987fb")
-                    .build();
-    Figure figure = new Figure(layout, trace).
-    Plot.show(figure);
-  }
-}
-```
+    public static void main(String[] args) {
+        ScatterTrace trace =
+                ScatterTrace.builder(x, y)
+                        .mode(ScatterTrace.Mode.MARKERS)
+                        .marker(
+                               Marker.builder()
+                                  .size(size)
+                                  .showScale(true)
+                                  .color(y)
+                                  .colorScale(Marker.Palette.BLUE_RED)
+                                  .symbol(Symbol.DIAMOND_TALL)
+                                  .build())
+                        .build();
+        Layout layout = Layout.builder()
+                .title("An example")
+                .xAxis(Axis.builder().title("My X axis").build())
+                .yAxis(Axis.builder().title("My Y axis").build())
+                .build();
+        Plot.show(Figure.builder(trace).layout(layout).build());
+    }
+}````
+````
 
 As you can see, plotly.java has a builder API, that lets you configure each plot exactly as you want, while retaining Java's type safety. 
 
@@ -61,6 +57,21 @@ A complete plot in Plot.ly is called a Figure. It can have several elements, the
 - Trace: Defines the attributes that determine the appearance of a single data series. A line plot for example, may have two traces, where one represents the GDP of Germany, and the other the GDP of France. Similarly, if you want to overlay two histograms on the same plot, each Histogram will be it's own trace. 
 
 Two other elements of Figures are Configs and Events. You can learn about those in the Plot.ly documentation (see below).  From here on, we will use the term plot and figure interchangeably to refer to a single figure. Note, however, that plotly allows you to combine figures in various ways.
+
+## More sample plots
+
+Here are some examples of plots that were created using plotly.java. 
+
+
+| Examples                                                     |                                                              |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/box1.png)A box plot | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scatter_2_Yaxes.png)A scatter plot with two series and two y axes | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/tornado.scatter.png)A scatter plot of latitude and longitude. |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_time_series2.png)A time series plot | ![A](https://jtablesaw.github.io/tablesaw/userguide/images/eda/hist_overlay.png)An overlay of two histograms | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/histogram2.png)A histogram |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/histogram2d.png)A heatmap | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/pie.png)A pie chart | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_3d.png)A 3 dimensional bubble plot |
+| ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_with_groups.png)A two dimensional bubble plot | ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/robberies_area.png)An area plot | ![](https://jtablesaw.github.io/tablesaw/userguide/images/ml/regression/wins%20by%20year.png) A scatter plot with two series |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_heatmap1.png)A two dimensional histogram | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tornado_bar_groups.png) A bar plot | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/ohlc1.png) An OHLC (open, high, low, close) plot |
+
+
 
 ## How plots are rendered:
 
@@ -153,3 +164,5 @@ There are SO many ways to contribute.
 **To help spread the word:** Let people know about plotly.java through your blog, through twitter, YouTube, Instagram or whatever. If you create a tutorial or some nice examples let us know and we will link from this page. We **LOVE** people who post examples.
 
 If you create any nice plots, please share them in the [Discussions section](https://github.com/jtablesaw/plotly.java/discussions), and tag the with the "Show and Tell" category. 
+
+Thank you for you support. 
