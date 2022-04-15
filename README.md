@@ -1,9 +1,9 @@
 # plotly.java
 Plotly.java is a third-party Java wrapper for the [Plotly JavaScript open source graphing library](https://plotly.com/javascript/), one of the finest graphing libraries available.  plotly.java lets you generate a wide range of JavaScript/HTML charts.  Please note that Plot.ly (the company) did not develop and does not support plotly.java (the library) in any way, other than to create the beautiful library that we use.  
 
-### Where plotly.java came from
+### Project history
 
-Plotly.java was developed as part of the [Tablesaw Java dataframe library](https://github.com/jtablesaw/tablesaw). Work began in 2018, with the goal of creating a tool for exploratory data analysis in Java that would complement the dataframe itself. It has been used since then in numerous projects. 
+Plotly.java was developed as part of the [Tablesaw Java dataframe library](https://github.com/jtablesaw/tablesaw). Work began four years ago (in 2018), with the goal of creating a tool for exploratory data analysis in Java that would complement the dataframe itself. It has been used since then in numerous projects. 
 
 Dependencies on Tablesaw have  been removed to make it easier to incorporate visualizations into a broad range of Java applications, but it remains a key part of the Tablesaw data wrangling solution. If you need to plot data from a CSV, Excel file, database, JSON, etc., we strongly recommend you take a look at [Tablesaw](https://github.com/jtablesaw/tablesaw) for data ingestion and transformation support. 
 
@@ -153,5 +153,3 @@ There are SO many ways to contribute.
 **To help spread the word:** Let people know about plotly.java through your blog, through twitter, YouTube, Instagram or whatever. If you create a tutorial or some nice examples let us know and we will link from this page. We **LOVE** people who post examples.
 
 If you create any nice plots, please share them in the [Discussions section](https://github.com/jtablesaw/plotly.java/discussions), and tag the with the "Show and Tell" category. 
-
-**To contribute financially**: Please click the support link. If you're working at a company or non-profit that needs additional support, let us know in the Discussions feature. 
