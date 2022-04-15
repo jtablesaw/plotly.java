@@ -11,7 +11,7 @@ All dependencies on Tablesaw have  been removed to make it easier to incorporate
 
 Here's a simple example that creates a Bubble Plot, with diamond-shaped markers. Two double arrays are used to specify the x and y coordinates. A third sets the size of the bubble. Colors are defined by the color scale shown at the left, which is applied to the y coordinates of each point.
 
-![](D:\projects\plotly.java\docs\images\examplePlot.png)
+![](https://github.com/jtablesaw/plotly.java/blob/main/docs/images/examplePlot.png)
 
 The code to create this image is shown below.
 
