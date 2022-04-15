@@ -21,38 +21,29 @@ class FigureTest {
     Figure figure = new Figure(trace);
 
     assertEquals(
-        "    <script>"
-            + LINE_END
-            + "        var target_target = document.getElementById('target');"
-            + LINE_END
-            + "        "
-            + LINE_END
-            + "var trace0 ="
-            + LINE_END
-            + "{"
-            + LINE_END
-            + "x: [\"1.0\",\"2.0\",\"3.0\",\"4.0\",\"5.0\"],"
-            + LINE_END
-            + "y: [\"1.0\",\"4.0\",\"9.0\",\"16.0\",\"25.0\"],"
-            + LINE_END
-            + "mode: 'markers',"
-            + LINE_END
-            + "xaxis: 'x',"
-            + LINE_END
-            + "yaxis: 'y',"
-            + LINE_END
-            + "type: 'scatter',"
-            + LINE_END
-            + "name: '',"
-            + LINE_END
-            + "};"
-            + LINE_END
-            + ""
-            + LINE_END
-            + "        var data = [ trace0];"
-            + LINE_END
-            + "Plotly.newPlot(target_target, data);            </script>"
-            + LINE_END,
+        "    <script>\n" +
+                "        var target_target = document.getElementById('target');\n" +
+                "        var layout = {\n" +
+                "\n" +
+                "\n" +
+                "};\n" +
+                "var config = {\n" +
+                "  displaylogo : false,\n" +
+                "  responsive : true\n" +
+                "}\n" +
+                "var trace0 =\n" +
+                "{\n" +
+                "x: [1.0, 2.0, 3.0, 4.0, 5.0],\n" +
+                "y: [1.0, 4.0, 9.0, 16.0, 25.0],\n" +
+                "mode: 'markers',\n" +
+                "xaxis: 'x',\n" +
+                "yaxis: 'y',\n" +
+                "type: 'scatter',\n" +
+                "name: '',\n" +
+                "};\n" +
+                "\n" +
+                "        var data = [ trace0];\n" +
+                "Plotly.newPlot(target_target, data, layout, config);            </script>\n",
         figure.asJavascript(divName));
   }
 
@@ -106,6 +97,14 @@ class FigureTest {
             "\n" +
             "};\n" +
             "\n" +
+            "var layout = {\n" +
+            "\n" +
+            "\n" +
+            "};\n" +
+            "var config = {\n" +
+            "  displaylogo : false,\n" +
+            "  responsive : true\n" +
+            "}"+
             "var trace0 =\n" +
             "{\n" +
             "x: [1.0, 2.0, 3.0, 4.0, 5.0],\n" +

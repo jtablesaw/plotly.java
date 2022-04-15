@@ -13,15 +13,16 @@ public class ConfigTest {
   public void testJavascript() {
     {
       Config config = Config.builder().build();
-      assertTrue(config.asJSON().startsWith("var config"));
+      assertTrue(config.asJavascript().startsWith("var config"));
     }
     {
       Config config = Config.builder().setModeBarDisplay(ALWAYS).build();
-      assertTrue(config.asJSON().contains("\"displayModeBar\" : true"));
+      assertTrue(config.asJSON().contains("displayModeBar : true"));
     }
     {
       Config config = Config.builder().setModeBarDisplay(NEVER).build();
-      assertTrue(config.asJSON().contains("\"displayModeBar\" : false"));
+      System.out.println(config.asJavascript());
+      assertTrue(config.asJSON().contains("displayModeBar : false"));
     }
     {
       Config config = Config.builder().build();
@@ -29,27 +30,27 @@ public class ConfigTest {
     }
     {
       Config config = Config.builder().responsive(true).build();
-      assertTrue(config.asJSON().contains("\"responsive\" : true"));
+      assertTrue(config.asJSON().contains("responsive : true"));
     }
     {
       Config config = Config.builder().responsive(false).build();
-      assertTrue(config.asJSON().contains("\"responsive\" : false"));
+      assertTrue(config.asJSON().contains("responsive : false"));
     }
     {
       Config config = Config.builder().build();
-      assertFalse(config.asJSON().contains("responsive"));
+      assertTrue(config.asJSON().contains("responsive"));
     }
     {
       Config config = Config.builder().displayLogo(true).build();
-      assertTrue(config.asJSON().contains("\"displaylogo\" : true"));
+      assertTrue(config.asJSON().contains("displaylogo : true"));
     }
     {
       Config config = Config.builder().displayLogo(false).build();
-      assertTrue(config.asJSON().contains("\"displaylogo\" : false"));
+      assertTrue(config.asJSON().contains("displaylogo : false"));
     }
     {
       Config config = Config.builder().build();
-      assertFalse(config.asJSON().contains("displaylogo"));
+      assertTrue(config.asJSON().contains("displaylogo"));
     }
   }
 }

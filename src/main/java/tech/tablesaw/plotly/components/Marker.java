@@ -119,14 +119,14 @@ public class Marker extends Component {
     if (cAuto != DEFAULT_C_AUTO) context.put("cauto", cAuto);
     if (color != null && color.length > 0) {
       if (color.length > 1) {
-        context.put("color", Utils.dataAsString(color));
+        context.put("color", color);
         context.put("cmin", cMin);
         context.put("cmax", cMax);
       } else {
         context.put("color", color[0]);
       }
     } else if (colorArray != null) {
-      context.put("color", Utils.dataAsString(colorArray));
+      context.put("color", colorArray);
     }
     if (line != null) context.put("line", line.asJSON());
     if (autoColorScale != DEFAULT_AUTO_COLOR_SCALE) context.put("autocolorscale", autoColorScale);

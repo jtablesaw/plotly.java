@@ -53,7 +53,7 @@ public class Config extends Component {
 
     // handle modebar display. ON_HOVER is the default, so we do nothing
     if (displayModeBar == ModeBarDisplay.NEVER) {
-      context.put("displayModeBar ", false);
+      context.put("displayModeBar", false);
     } else if (displayModeBar == ModeBarDisplay.ALWAYS) {
       context.put("displayModeBar", true);
     }

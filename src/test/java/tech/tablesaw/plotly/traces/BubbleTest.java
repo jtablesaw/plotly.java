@@ -43,13 +43,13 @@ public class BubbleTest {
             .marker(
                 Marker.builder()
                     .size(size)
-                    .opacity(.5)
                     .showScale(true)
+                    .color(y)
                     .colorScale(Marker.Palette.GREENS)
                     .symbol(Symbol.DIAMOND_TALL)
                     .build())
             .build();
 
-    Plot.show(new Figure(trace));
+    Plot.show(Figure.builder(trace).build());
   }
 }

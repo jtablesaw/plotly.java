@@ -43,11 +43,11 @@ public class Figure {
   }
 
   public Figure(Trace... traces) {
-    this((Layout) null, traces);
+    this(Layout.builder().build(), traces);
   }
 
   public Figure(Layout layout, Trace... traces) {
-    this(layout, (Config) null, traces);
+    this(layout, Config.builder().build(), traces);
   }
 
   public Figure(Layout layout, Config config, Trace... traces) {
@@ -187,10 +187,14 @@ public class Figure {
     return new FigureBuilder();
   }
 
+  public static FigureBuilder builder(Trace... traces) {
+    return new FigureBuilder().addTraces(traces);
+  }
+
   public static class FigureBuilder {
 
-    private Layout layout;
-    private Config config;
+    private Layout layout = Layout.builder().build();
+    private Config config = Config.builder().build();
     private final List<Trace> traces = new ArrayList<>();
     private final List<EventHandler> eventHandlers = new ArrayList<>();
 
