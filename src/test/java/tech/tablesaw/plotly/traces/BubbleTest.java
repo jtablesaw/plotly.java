@@ -16,9 +16,7 @@ package tech.tablesaw.plotly.traces;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tech.tablesaw.plotly.Plot;
-import tech.tablesaw.plotly.components.Figure;
-import tech.tablesaw.plotly.components.Marker;
-import tech.tablesaw.plotly.components.Symbol;
+import tech.tablesaw.plotly.components.*;
 import tech.tablesaw.plotly.traces.ScatterTrace;
 
 @Disabled
@@ -51,5 +49,27 @@ public class BubbleTest {
             .build();
 
     Plot.show(Figure.builder(trace).build());
+  }
+
+  @Test
+  public void showScatter2() {
+    ScatterTrace trace =
+        ScatterTrace.builder(x, y)
+            .mode(ScatterTrace.Mode.MARKERS)
+            .marker(
+                Marker.builder()
+                    .size(size)
+                    .showScale(true)
+                    .color(y)
+                    .colorScale(Marker.Palette.BLUE_RED)
+                    .symbol(Symbol.DIAMOND_TALL)
+                    .build())
+            .build();
+    Layout layout = Layout.builder()
+            .title("An example")
+            .xAxis(Axis.builder().title("My X axis").build())
+            .yAxis(Axis.builder().title("My Y axis").build())
+            .build();
+    Plot.show(Figure.builder(trace).layout(layout).build());
   }
 }
