@@ -35,14 +35,14 @@ public class TemplateUtilsTest {
     assertTrue(templateFile.exists(), templateFile + " doesn't exist");
     TemplateUtils.setTemplateLocations(folderPath);
     String html = createPageHtml();
-    assertTrue(html.indexOf(customTemplateString) >= 0);
+    assertTrue(html.contains(customTemplateString));
   }
 
   private String createPageHtml() {
     Trace trace = ScatterTrace.builder(x, y).build();
     Figure figure = new Figure(trace);
     Page page = new PageBuilder(figure, "plot").build();
-    String html = page.asJSON();
+    String html = page.asJavascript();
     return html;
   }
 }

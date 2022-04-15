@@ -16,7 +16,8 @@ public class PageTest {
   public void testDefaultPlotlyJsLocation() {
     BarTrace trace = BarTrace.builder(x, y).build();
     Page page = Page.pageBuilder(new Figure(trace), "plot").build();
-    String html = page.asJSON();
+    String html = page.asJavascript();
+    System.out.println(html);
     assertTrue(html.indexOf("\"" + "https://cdn.plot.ly/plotly-latest.min.js" + "\"") > 0);
   }
 

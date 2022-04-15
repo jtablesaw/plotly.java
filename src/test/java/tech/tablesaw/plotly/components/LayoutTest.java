@@ -103,8 +103,6 @@ public class LayoutTest {
               + LINE_END
               + "    height: 600,"
               + LINE_END
-              + "    width: 700,"
-              + LINE_END
               + LINE_END
               + LINE_END
               + "};"

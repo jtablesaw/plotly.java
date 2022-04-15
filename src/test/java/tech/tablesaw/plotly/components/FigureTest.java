@@ -9,10 +9,10 @@ import tech.tablesaw.plotly.traces.Trace;
 class FigureTest {
 
   private static final String LINE_END = System.lineSeparator();
-  private String divName = "target";
+  private final String divName = "target";
 
-  private double[] x = {1, 2, 3, 4, 5};
-  private double[] y = {1, 4, 9, 16, 25};
+  private final double[] x = {1, 2, 3, 4, 5};
+  private final double[] y = {1, 4, 9, 16, 25};
 
   @Test
   void asJSON() {
@@ -21,29 +21,29 @@ class FigureTest {
     Figure figure = new Figure(trace);
 
     assertEquals(
-        "    <script>\n" +
-                "        var target_target = document.getElementById('target');\n" +
-                "        var layout = {\n" +
-                "\n" +
-                "\n" +
-                "};\n" +
-                "var config = {\n" +
-                "  displaylogo : false,\n" +
-                "  responsive : true\n" +
-                "}\n" +
-                "var trace0 =\n" +
-                "{\n" +
-                "x: [1.0, 2.0, 3.0, 4.0, 5.0],\n" +
-                "y: [1.0, 4.0, 9.0, 16.0, 25.0],\n" +
-                "mode: 'markers',\n" +
-                "xaxis: 'x',\n" +
-                "yaxis: 'y',\n" +
-                "type: 'scatter',\n" +
-                "name: '',\n" +
-                "};\n" +
-                "\n" +
-                "        var data = [ trace0];\n" +
-                "Plotly.newPlot(target_target, data, layout, config);            </script>\n",
+"    <script>" + LINE_END +
+        "        var target_target = document.getElementById('target');" + LINE_END +
+        "        var layout = {" + LINE_END +
+        "" + LINE_END +
+        "" + LINE_END +
+        "};" + LINE_END +
+        "var config = {" + LINE_END +
+        "  displaylogo : false," + LINE_END +
+        "  responsive : true" + LINE_END +
+        "}" + LINE_END +
+        "var trace0 =" + LINE_END +
+        "{" + LINE_END +
+        "x: [1.0, 2.0, 3.0, 4.0, 5.0]," + LINE_END +
+        "y: [1.0, 4.0, 9.0, 16.0, 25.0]," + LINE_END +
+        "mode: 'markers'," + LINE_END +
+        "xaxis: 'x'," + LINE_END +
+        "yaxis: 'y'," + LINE_END +
+        "type: 'scatter'," + LINE_END +
+        "name: ''," + LINE_END +
+        "};" + LINE_END +
+        "" + LINE_END +
+        "        var data = [ trace0];" + LINE_END +
+        "Plotly.newPlot(target_target, data, layout, config);            </script>" + LINE_END,
         figure.asJavascript(divName));
   }
 
@@ -68,56 +68,56 @@ class FigureTest {
             .build();
 
     Figure figure = new Figure(layout, trace);
-    String expected = "    <script>\n" +
-            "        var target_target = document.getElementById('target');\n" +
-            "        var layout = {\n" +
-            "    title: 'A test title',\n" +
-            "    height: 450,\n" +
-            "    width: 700,\n" +
-            "    showlegend: true,\n" +
-            "    margin: {\n" +
-            "  autoexpand : true,\n" +
-            "  b : 80,\n" +
-            "  l : 200,\n" +
-            "  pad : 0,\n" +
-            "  r : 80,\n" +
-            "  t : 200\n" +
-            "},\n" +
-            "    xaxis: {\n" +
-            "  fixedrange : true,\n" +
-            "  rangemode : \"normal\",\n" +
-            "  title : \"x Axis 1\",\n" +
-            "  titlefont : {\n" +
-            "    fontFamily : \"arial\",\n" +
-            "    size : 8,\n" +
-            "    color : \"red\"\n" +
-            "  }\n" +
-            "},\n" +
-            "\n" +
-            "\n" +
-            "};\n" +
-            "\n" +
-            "var layout = {\n" +
-            "\n" +
-            "\n" +
-            "};\n" +
-            "var config = {\n" +
-            "  displaylogo : false,\n" +
-            "  responsive : true\n" +
+    String expected = "    <script>" + LINE_END +
+            "        var target_target = document.getElementById('target');" + LINE_END +
+            "        var layout = {" + LINE_END +
+            "    title: 'A test title'," + LINE_END +
+            "    height: 450," + LINE_END +
+            "    width: 700," + LINE_END +
+            "    showlegend: true," + LINE_END +
+            "    margin: {" + LINE_END +
+            "  autoexpand : true," + LINE_END +
+            "  b : 80," + LINE_END +
+            "  l : 200," + LINE_END +
+            "  pad : 0," + LINE_END +
+            "  r : 80," + LINE_END +
+            "  t : 200LINE_END" +
+            "}," + LINE_END +
+            "    xaxis: {" + LINE_END +
+            "  fixedrange : true," + LINE_END +
+            "  rangemode : \"normal\"," + LINE_END +
+            "  title : \"x Axis 1\"," + LINE_END +
+            "  titlefont : {" + LINE_END +
+            "    fontFamily : \"arial\"," + LINE_END +
+            "    size : 8," + LINE_END +
+            "    color : \"red\"" + LINE_END +
+            "  }" + LINE_END +
+            "}," + LINE_END +
+            "" + LINE_END +
+            "" + LINE_END +
+            "};" + LINE_END +
+            "" + LINE_END +
+            "var layout = {" + LINE_END +
+            "" + LINE_END +
+            "" + LINE_END +
+            "};" + LINE_END +
+            "var config = {" + LINE_END +
+            "  displaylogo : false," + LINE_END +
+            "  responsive : true" + LINE_END +
             "}"+
-            "var trace0 =\n" +
-            "{\n" +
-            "x: [1.0, 2.0, 3.0, 4.0, 5.0],\n" +
-            "y: [1.0, 4.0, 9.0, 16.0, 25.0],\n" +
-            "mode: 'markers',\n" +
-            "xaxis: 'x',\n" +
-            "yaxis: 'y',\n" +
-            "type: 'scatter',\n" +
-            "name: '',\n" +
-            "};\n" +
-            "\n" +
-            "        var data = [ trace0];\n" +
-            "Plotly.newPlot(target_target, data, layout);            </script>\n";
+            "var trace0 =" + LINE_END +
+            "{" + LINE_END +
+            "x: [1.0, 2.0, 3.0, 4.0, 5.0]," + LINE_END +
+            "y: [1.0, 4.0, 9.0, 16.0, 25.0]," + LINE_END +
+            "mode: 'markers'," + LINE_END +
+            "xaxis: 'x'," + LINE_END +
+            "yaxis: 'y'," + LINE_END +
+            "type: 'scatter'," + LINE_END +
+            "name: ''," + LINE_END +
+            "};" + LINE_END +
+            "" + LINE_END +
+            "        var data = [ trace0];" + LINE_END +
+            "Plotly.newPlot(target_target, data, layout);            </script>" + LINE_END;
     String actual = figure.asJavascript(divName);
     assertNotEquals(expected, actual);
   }
