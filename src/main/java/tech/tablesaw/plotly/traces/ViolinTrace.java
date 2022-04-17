@@ -4,6 +4,8 @@ import static tech.tablesaw.plotly.Utils.dataAsString;
 
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
+import tech.tablesaw.plotly.components.Marker;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
@@ -16,6 +18,7 @@ public class ViolinTrace extends AbstractTrace {
   private final double[] y;
   private final boolean showBoxPlot;
   private final boolean showMeanLine;
+  private final Marker marker;
 
   private ViolinTrace(ViolinBuilder builder) {
     super(builder);
@@ -23,6 +26,7 @@ public class ViolinTrace extends AbstractTrace {
     this.y = builder.y;
     this.showMeanLine = builder.showMeanLine;
     this.showBoxPlot = builder.showBoxPlot;
+    this.marker = builder.marker;
   }
 
   public static ViolinBuilder builder(Object[] x, double[] y) {
@@ -65,6 +69,9 @@ public class ViolinTrace extends AbstractTrace {
     if (showMeanLine) {
       context.put("meanLine", "{visible: true}");
     }
+    if (marker != null) {
+      context.put("marker", marker);
+    }
     return context;
   }
 
@@ -75,6 +82,7 @@ public class ViolinTrace extends AbstractTrace {
     private final double[] y;
     private boolean showBoxPlot;
     private boolean showMeanLine;
+    private Marker marker;
 
     ViolinBuilder(Object[] x, double[] y) {
       this.x = x;
@@ -94,6 +102,11 @@ public class ViolinTrace extends AbstractTrace {
 
     public ViolinBuilder meanLine(boolean show) {
       this.showMeanLine = show;
+      return this;
+    }
+
+    public ViolinBuilder marker(Marker marker) {
+      this.marker = marker;
       return this;
     }
 

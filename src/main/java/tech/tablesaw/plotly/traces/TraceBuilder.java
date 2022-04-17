@@ -1,9 +1,13 @@
 package tech.tablesaw.plotly.traces;
 
 import com.google.common.base.Preconditions;
+import tech.tablesaw.plotly.components.ColorBar;
 import tech.tablesaw.plotly.components.HoverLabel;
+import tech.tablesaw.plotly.components.LegendGroupTitle;
 
 public abstract class TraceBuilder {
+
+  protected double legendRank;
 
   protected AbstractTrace.Visibility visible = AbstractTrace.DEFAULT_VISIBILITY;
 
@@ -15,6 +19,8 @@ public abstract class TraceBuilder {
    * same time when toggling legend items.
    */
   protected String legendGroup = "";
+
+  protected LegendGroupTitle legendGroupTitle;
 
   /** Sets the opacity of the trace. */
   protected double opacity = AbstractTrace.DEFAULT_OPACITY; // number between or equal to 0 and 1
@@ -42,6 +48,12 @@ public abstract class TraceBuilder {
    * `layout.yaxis2`, and so on.
    */
   protected String yAxis = "y";
+
+  protected String[] hoverText;
+
+  protected String[] hoverTemplate;
+
+  protected ColorBar colorBar;
 
   TraceBuilder() {}
 
@@ -75,6 +87,21 @@ public abstract class TraceBuilder {
 
   protected TraceBuilder hoverLabel(HoverLabel hoverLabel) {
     this.hoverLabel = hoverLabel;
+    return this;
+  }
+
+  protected TraceBuilder hoverText(String... text) {
+    this.hoverText = text;
+    return this;
+  }
+
+  protected TraceBuilder hoverTemplate(String... template) {
+    this.hoverTemplate = template;
+    return this;
+  }
+
+  protected TraceBuilder colorBar(ColorBar colorBar) {
+    this.colorBar = colorBar;
     return this;
   }
 

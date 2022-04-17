@@ -1,5 +1,5 @@
 # plotly.java
-Plotly.java is a third-party Java wrapper for the [Plotly JavaScript open source graphing library](https://plotly.com/javascript/), one of the finest graphing libraries available.  plotly.java lets you generate a wide range of JavaScript/HTML charts.  Please note that Plot.ly (the company) did not develop and does not support plotly.java (the library) in any way, other than to create the beautiful library that we use.  
+Plotly.java is a third-party Java wrapper for the [Plotly JavaScript open source graphing library](https://plotly.com/javascript/), one of the finest graphing libraries available. Plotly.java lets you generate a wide range of JavaScript/HTML charts.  Please note that Plot.ly (the company) did not develop and does not support plotly.java (the library) in any way, other than to create the beautiful library that we use.  
 
 ### Project history
 
@@ -11,7 +11,7 @@ All dependencies on Tablesaw have  been removed to make it easier to incorporate
 
 Here's a simple example that creates a Bubble Plot, with diamond-shaped markers. Two double arrays are used to specify the x and y coordinates. A third sets the size of the bubble. Colors are defined by the color scale shown at the left, which is applied to the y coordinates of each point.
 
-![](https://github.com/jtablesaw/plotly.java/blob/main/docs/images/examplePlot.png)
+![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/examplePlot.png)
 
 The code to create this image is shown below.
 
@@ -65,11 +65,11 @@ Here are some examples of plots that were created using plotly.java.
 
 | Examples                                                     |                                                              |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/box1.png)A box plot | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scatter_2_Yaxes.png)A scatter plot with two series and two y axes | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/tornado.scatter.png)A scatter plot of latitude and longitude. |
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_time_series2.png)A time series plot | ![A](https://jtablesaw.github.io/tablesaw/userguide/images/eda/hist_overlay.png)An overlay of two histograms | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/histogram2.png)A histogram |
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/histogram2d.png)A heatmap | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/pie.png)A pie chart | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_3d.png)A 3 dimensional bubble plot |
-| ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_with_groups.png)A two dimensional bubble plot | ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/robberies_area.png)An area plot | ![](https://jtablesaw.github.io/tablesaw/userguide/images/ml/regression/wins%20by%20year.png) A scatter plot with two series |
-| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_heatmap1.png)A two dimensional histogram | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tornado_bar_groups.png) A bar plot | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/ohlc1.png) An OHLC (open, high, low, close) plot |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/box1.png)Box plot | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scatter_2_Yaxes.png)Scatter plot | ![Contour](https://jtablesaw.github.io/tablesaw/userguide/images/eda/contour.png)Contour plot |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_time_series2.png)Time series plot | ![A](https://jtablesaw.github.io/tablesaw/userguide/images/eda/hist_overlay.png)Histogram | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/examplePlot.png)Violin plot |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/histogram2d.png)Heatmap | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/pie.png)Pie chart | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_3d.png)3D bubble plot |
+| ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/wine_bubble_with_groups.png)2D bubble plot | ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/robberies_area.png)Area plot | ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tukey-mean-distribution.png) Tukey Mean-Distribution plot |
+| ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_heatmap1.png)2D histogram | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tornado_bar_groups.png) Bar plot | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/ohlc1.png) OHLC (open, high, low, close) plot |
 
 
 
@@ -127,6 +127,16 @@ Add tablesaw-plotly-java to your project. You can find the version number for th
     <version>VERSION_NUMBER_GOES_HERE</version>
 </dependency>
 ```
+
+### Advanced examples
+
+#### Subplots
+
+![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/subplots.png)
+
+#### Scatterplot Matrix
+
+![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/splom.png)
 
 ## Documentation
 

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.components.Figure;
+import tech.tablesaw.plotly.components.Marker;
 import tech.tablesaw.plotly.traces.ViolinTrace;
 
 @Disabled
@@ -35,7 +36,11 @@ class ViolinTest {
 
   @Test
   void showWithMeanLine() {
-    ViolinTrace trace = ViolinTrace.builder(x, y).meanLine(true).build();
+    ViolinTrace trace =
+            ViolinTrace.builder(x, y)
+            .meanLine(true)
+                    .marker(Marker.builder().color("#B10DC9").build())
+                    .build();
     Figure figure = new Figure(trace);
     assertNotNull(figure);
     Plot.show(figure, "target");

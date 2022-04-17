@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tech.jtablesaw</groupId>
-    <artifactId>plotly.java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>tech.tablesaw</groupId>
+    <artifactId>plotly-java</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <!-- TODO: set Java version to match Tablesaw 1.0 -->
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <doclint>none</doclint>
     </properties>
 

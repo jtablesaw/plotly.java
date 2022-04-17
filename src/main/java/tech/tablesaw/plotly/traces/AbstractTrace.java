@@ -9,7 +9,10 @@ import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
+
+import tech.tablesaw.plotly.components.ColorBar;
 import tech.tablesaw.plotly.components.HoverLabel;
+import tech.tablesaw.plotly.components.LegendGroupTitle;
 import tech.tablesaw.plotly.components.TemplateUtils;
 
 public abstract class AbstractTrace implements Trace {
@@ -44,10 +47,27 @@ public abstract class AbstractTrace implements Trace {
   private final Boolean showLegend;
 
   /**
+   * Default = ""
    * Sets the legend group for this trace. Traces part of the same legend group hide/show at the
    * same time when toggling legend items.
    */
   private final String legendGroup;
+
+  /**
+   * Sets the title for the legend group. It includes text, color and font
+   */
+  private final LegendGroupTitle legendGroupTitle;
+
+  /**
+   *
+   * The default legendrank is 1000
+   *
+   * Sets the legend rank for this trace. Items and groups with smaller ranks are presented on top/left side
+   * while with `"reversed" `legend.traceorder` they are on bottom/right side.
+   * The default legendrank is 1000, so that you can use ranks less than 1000 to place certain items
+   * before all unranked items, and ranks greater than 1000 to go after all unranked items.
+   */
+  private final double legendRank;
 
   /** Sets the opacity of the trace. */
   private final double opacity; // number between or equal to 0 and 1
@@ -76,17 +96,28 @@ public abstract class AbstractTrace implements Trace {
 
   private final HoverLabel hoverLabel;
 
+  private final String[] hoverText;
+
+  private final String[] hoverTemplate;
+
+  private final ColorBar colorBar;
+
   public AbstractTrace(TraceBuilder builder) {
     this.type = builder.getType();
     this.name = builder.name;
     this.showLegend = builder.showLegend;
+    this.legendRank = builder.legendRank;
     this.legendGroup = builder.legendGroup;
+    this.legendGroupTitle = builder.legendGroupTitle;
     this.visible = builder.visible;
     this.ids = builder.ids;
     this.hoverLabel = builder.hoverLabel;
     this.opacity = builder.opacity;
     this.xAxis = builder.xAxis;
     this.yAxis = builder.yAxis;
+    this.colorBar = builder.colorBar;
+    this.hoverText = builder.hoverText;
+    this.hoverTemplate = builder.hoverTemplate;
   }
 
   @Override
