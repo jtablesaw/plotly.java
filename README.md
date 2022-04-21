@@ -9,7 +9,7 @@ All dependencies on Tablesaw have  been removed to make it easier to incorporate
 
 ## An Example
 
-Here's a simple example that creates a Bubble Plot, with diamond-shaped markers. Two double arrays are used to specify the x and y coordinates. A third sets the size of the bubble. Colors are defined by the color scale shown at the left, which is applied to the y coordinates of each point.
+Here's a simple example that creates a Bubble Plot with diamond-shaped markers. Two double arrays are used to specify the x and y coordinates. A third sets the size of the bubble. Colors are defined by the color scale shown at the left, which is applied to the y coordinates of each point.
 
 ![](https://jtablesaw.github.io/tablesaw/userguide/images/eda/examplePlot.png)
 
@@ -53,8 +53,8 @@ As you can see, plotly.java has a builder API, that lets you configure each plot
 
 A complete plot in Plot.ly is called a Figure. It can have several elements, the most important of which are layouts and traces.
 
-- Layout: Defines the key attributes that determine the appearance of the overall plot, like it's title and it's height and width (if you don't want a responsive plot).
-- Trace: Defines the attributes that determine the appearance of a single data series. A line plot for example, may have two traces, where one represents the GDP of Germany, and the other the GDP of France. Similarly, if you want to overlay two histograms on the same plot, each Histogram will be it's own trace. 
+- *Layout* defines the attributes that determine the appearance of the overall plot- like its title and its height and width (if you don't want a responsive plot).
+- *Trace* defines the attributes that determine the appearance of a single data series. A line plot for example, may have two traces, where one represents the GDP of Germany, and the other the GDP of France. Similarly, if you want to overlay two histograms on the same plot, each Histogram will be it's own trace. 
 
 Two other elements of Figures are Configs and Events. You can learn about those in the Plot.ly documentation (see below).  From here on, we will use the term plot and figure interchangeably to refer to a single figure. Note, however, that plotly allows you to combine figures in various ways.
 
