@@ -6,6 +6,12 @@ x: {{x | raw}},
 {% if y is not null %}
 y: {{y | raw}},
 {% endif %}
+{% if lat is not null %}
+lat: {{lat | raw}},
+{% endif %}
+{% if lon is not null %}
+lon: {{lon | raw}},
+{% endif %}
 {% if open is not null %}
 open: {{open | raw}},
 {% endif %}
@@ -38,6 +44,9 @@ marker: {{marker | raw }},
 {% endif %}
 {% if text is not null %}
 text: {{text | raw }},
+{% endif %}
+{% if textposition is not null %}
+textposition: {{textposition | raw }},
 {% endif %}
 {% if mode is not null %}
 mode: '{{mode}}',

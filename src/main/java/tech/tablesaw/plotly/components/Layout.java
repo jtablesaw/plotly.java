@@ -14,6 +14,8 @@ import tech.tablesaw.plotly.components.threeD.Scene;
 
 public class Layout {
 
+  private final PebbleEngine engine = TemplateUtils.getNewEngine();
+
   private static final int DEFAULT_HEIGHT = 600;
   private static final int DEFAULT_WIDTH = 800;
   private static final String DEFAULT_TITLE = "";
@@ -28,9 +30,8 @@ public class Layout {
   private static final BarMode DEFAULT_BAR_MODE = BarMode.GROUP;
   private static final Font DEFAULT_TITLE_FONT = Font.builder().build();
   private static final Font DEFAULT_FONT = Font.builder().build();
-
-  private final PebbleEngine engine = TemplateUtils.getNewEngine();
   private final Scene scene;
+  private final Geo geo;
 
   /** Determines the mode of hover interactions. */
   public enum HoverMode {
@@ -205,6 +206,7 @@ public class Layout {
     this.barMode = builder.barMode;
     this.scene = builder.scene;
     this.grid = builder.grid;
+    this.geo = builder.geo;
   }
 
   public String getTitle() {
@@ -287,6 +289,9 @@ public class Layout {
     if (grid != null) {
       context.put("grid", grid);
     }
+    if (geo != null) {
+      context.put("geo", geo);
+    }
     return context;
   }
 
@@ -310,6 +315,7 @@ public class Layout {
 
     /** The global font */
     private final Font font = DEFAULT_FONT;
+    public Geo geo;
 
     /** The plot title */
     private String title = "";
@@ -486,6 +492,11 @@ public class Layout {
 
     public LayoutBuilder grid(Grid grid) {
       this.grid = grid;
+      return this;
+    }
+
+    public LayoutBuilder geo(Geo geo) {
+      this.geo = geo;
       return this;
     }
   }

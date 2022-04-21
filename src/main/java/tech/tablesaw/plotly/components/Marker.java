@@ -128,7 +128,7 @@ public class Marker extends Component {
     } else if (colorArray != null) {
       context.put("color", colorArray);
     }
-    if (line != null) context.put("line", line.asJSON());
+    if (line != null) context.put("line", line);
     if (autoColorScale != DEFAULT_AUTO_COLOR_SCALE) context.put("autocolorscale", autoColorScale);
     if (showScale != DEFAULT_SHOW_SCALE) context.put("showscale", showScale);
     if (reverseScale != DEFAULT_REVERSE_SCALE) context.put("reversescale", reverseScale);

@@ -54,7 +54,6 @@ var layout = {
 {% if yAxis3 is not null %}
     yaxis3: {{yAxis3 | raw}},
 {% endif %}
-
 {% if zAxis is not null %}
     zaxis: {{zAxis | raw}},
 {% endif %}
@@ -72,5 +71,8 @@ var layout = {
 {% endif %}
 {% if grid is not null %}
     grid:  {{grid | raw}}
+{% endif %}
+{% if geo is not null %}
+    geo: {{geo | raw}},
 {% endif %}
 };
