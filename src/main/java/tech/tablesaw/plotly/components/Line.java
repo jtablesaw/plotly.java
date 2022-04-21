@@ -1,5 +1,6 @@
 package tech.tablesaw.plotly.components;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
 import java.util.HashMap;
@@ -44,6 +45,7 @@ public class Line extends Component {
     this.width = builder.width;
   }
 
+  @JsonIgnore
   @Override
   public Map<String, Object> getJSONContext() {
     Map<String, Object> context = new HashMap<>();
