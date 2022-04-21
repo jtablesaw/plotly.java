@@ -63,7 +63,7 @@ Two other elements of Figures are Configs and Events. You can learn about those 
 Here are some examples of plots that were created using plotly.java. 
 
 
-| Examples                                                     | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scattergeo.png)Scatter plot map overlay | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tornado_pareto.png)Scatter plot |
+| Examples                                                     | ![Canadian Cities](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scattergeo.png)Scatter plot map overlay | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/tornado_pareto.png)Pareto plot |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/box1.png)Box plot | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/scatter_2_Yaxes.png)Scatter plot | ![Contour](https://jtablesaw.github.io/tablesaw/userguide/images/eda/contour.png)Contour plot |
 | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/bush_time_series2.png)Time series plot | ![A](https://jtablesaw.github.io/tablesaw/userguide/images/eda/hist_overlay.png)Histogram | ![Tornadoes](https://jtablesaw.github.io/tablesaw/userguide/images/eda/violin1.png)Violin plot |
