@@ -5,7 +5,7 @@ Plotly.java is a Java wrapper for the [Plotly JavaScript open source graphing li
 
 Plotly.java was developed as part of the [Tablesaw Java dataframe library](https://github.com/jtablesaw/tablesaw). It has been used since 2018 in numerous projects, and was originally created as a tool for exploratory data analysis that would complement the dataframe's data wrangling abilities.
 
-All dependencies on Tablesaw have  been removed to make it easier to incorporate visualizations into a broad range of Java applications, but it remains a key part of the Tablesaw data wrangling solution. If you need to plot data from a CSV, Excel file, database, JSON, etc., we strongly recommend you take a look at [Tablesaw](https://github.com/jtablesaw/tablesaw) for data ingestion and transformation support. 
+All dependencies on Tablesaw have  been removed to make it easier to incorporate visualizations into a broad range of Java applications, but it remains a key part of the Tablesaw solution. If you need to plot data from a CSV, Excel file, database, JSON, etc., we strongly recommend you take a look at [Tablesaw](https://github.com/jtablesaw/tablesaw) for data ingestion and transformation support, as well as for descriptive statistics. 
 
 ## An Example
 
