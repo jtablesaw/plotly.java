@@ -3,6 +3,7 @@ package tech.tablesaw.plotly.components;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class LayoutTest {
@@ -26,7 +27,8 @@ public class LayoutTest {
     System.out.println(layout.asJavascript());
   }
 
-  // @Test
+  @Disabled
+  @Test
   public void asJavascriptForGrid() {
 
     Axis x = Axis.builder().title("x axis").build();
@@ -48,6 +50,7 @@ public class LayoutTest {
     assertTrue(asJavascript.contains("xAxis"));
   }
 
+  @Disabled
   @Test
   public void testAutosize() {
     {

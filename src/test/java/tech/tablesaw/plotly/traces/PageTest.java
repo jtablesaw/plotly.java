@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import tech.tablesaw.plotly.components.Figure;
 import tech.tablesaw.plotly.components.Page;
-import tech.tablesaw.plotly.traces.BarTrace;
 
 public class PageTest {
 
@@ -17,7 +16,7 @@ public class PageTest {
     BarTrace trace = BarTrace.builder(x, y).build();
     Page page = Page.pageBuilder(new Figure(trace), "plot").build();
     String html = page.asJavascript();
-    System.out.println(html);
+    // System.out.println(html);
     assertTrue(html.indexOf("\"" + "https://cdn.plot.ly/plotly-latest.min.js" + "\"") > 0);
   }
 
