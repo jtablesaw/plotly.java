@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tech.tablesaw.plotly.Plot;
 import tech.tablesaw.plotly.components.Figure;
-import tech.tablesaw.plotly.traces.PieTrace;
 
 @Disabled
 public class PieTest {
@@ -14,12 +13,14 @@ public class PieTest {
   private final Object[] x = {"sheep", "cows", "fish", "tree sloths"};
   private final double[] y = {1, 4, 9, 16};
 
+  @Disabled
   @Test
   public void testAsJSON() {
     PieTrace trace = PieTrace.builder(x, y).build();
     System.out.println(trace.asJavascript(1));
   }
 
+  @Disabled
   @Test
   public void show() {
     PieTrace trace = PieTrace.builder(x, y).build();
