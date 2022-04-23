@@ -5,6 +5,7 @@ testoutput/
 # IntelliJ
 *.iml
 .idea/
+ssh/
 
 # Eclipse
 .project
