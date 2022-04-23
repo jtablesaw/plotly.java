@@ -100,7 +100,7 @@ The details of this will vary depending on which Web framework you use, but the 
 
 #### Render a plot in your desktop's default browser
 
-This method is best if you're looking at data interactively in your IDE.  The Plot class used on the last line in the example above shows how. Plot is simply a helper class with several methods called *show()* that write out an HTML file to your local disk, finds your default browser, and tells it to open that HTML page in a new browser tab.  As shown above, the simplest version is 
+This method is best if you're looking at data interactively in your IDE.  The Plot class used on the last line in the example above shows how. Plot is simply a helper class with several methods called *show()* that write out an HTML file to your local disk, find your default browser, and tell it to open that HTML page in a new browser tab.  As shown above, the simplest version is 
 
 ````java
     Plot.show(figure));
