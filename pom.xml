@@ -10,7 +10,11 @@
     <name>plotly.java</name>
     <description>Plotly-based data visualization generator in Java</description>
     <url>https://github.com/jtablesaw/plotly.java</url>
-
+    <scm>
+        <connection>scm:git:git@github.com:jtablesaw/plotly.java.git</connection>
+        <developerConnection>scm:git:git@github.com:jtablesaw/plotly.java.git</developerConnection>
+        <url>git@github.com:jtablesaw/plotly.java.git</url>
+    </scm>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -23,6 +27,8 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <doclint>none</doclint>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <distributionManagement>
         <snapshotRepository>
