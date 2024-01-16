@@ -1,11 +1,5 @@
 package tech.tablesaw.plotly.components.threeD;
 
-import com.mitchellbosecke.pebble.error.PebbleException;
-import com.mitchellbosecke.pebble.template.PebbleTemplate;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.UncheckedIOException;
-import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 import tech.tablesaw.plotly.components.Axis;
@@ -50,22 +44,22 @@ public class Scene extends Component {
     return new Scene.SceneBuilder();
   }
 
-/*
-  @Override
-  public String asJavascript() {
-    Writer writer = new StringWriter();
-    PebbleTemplate compiledTemplate;
-    try {
-      compiledTemplate = getEngine().getTemplate("scene_template.html");
-      compiledTemplate.evaluate(writer, getContext());
-    } catch (PebbleException e) {
-      throw new IllegalStateException(e);
-    } catch (IOException e) {
-      throw new UncheckedIOException(e);
+  /*
+    @Override
+    public String asJavascript() {
+      Writer writer = new StringWriter();
+      PebbleTemplate compiledTemplate;
+      try {
+        compiledTemplate = getEngine().getTemplate("scene_template.html");
+        compiledTemplate.evaluate(writer, getContext());
+      } catch (PebbleException e) {
+        throw new IllegalStateException(e);
+      } catch (IOException e) {
+        throw new UncheckedIOException(e);
+      }
+      return writer.toString();
     }
-    return writer.toString();
-  }
-*/
+  */
 
   public static class SceneBuilder {
 

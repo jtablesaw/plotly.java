@@ -1,15 +1,14 @@
 package tech.tablesaw.plotly.traces;
 
-import com.mitchellbosecke.pebble.PebbleEngine;
-import com.mitchellbosecke.pebble.error.PebbleException;
-import com.mitchellbosecke.pebble.template.PebbleTemplate;
+import io.pebbletemplates.pebble.PebbleEngine;
+import io.pebbletemplates.pebble.error.PebbleException;
+import io.pebbletemplates.pebble.template.PebbleTemplate;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
-
 import tech.tablesaw.plotly.components.ColorBar;
 import tech.tablesaw.plotly.components.HoverLabel;
 import tech.tablesaw.plotly.components.LegendGroupTitle;
@@ -47,24 +46,20 @@ public abstract class AbstractTrace implements Trace {
   private final Boolean showLegend;
 
   /**
-   * Default = ""
-   * Sets the legend group for this trace. Traces part of the same legend group hide/show at the
-   * same time when toggling legend items.
+   * Default = "" Sets the legend group for this trace. Traces part of the same legend group
+   * hide/show at the same time when toggling legend items.
    */
   private final String legendGroup;
 
-  /**
-   * Sets the title for the legend group. It includes text, color and font
-   */
+  /** Sets the title for the legend group. It includes text, color and font */
   private final LegendGroupTitle legendGroupTitle;
 
   /**
-   *
    * The default legendrank is 1000
    *
-   * Sets the legend rank for this trace. Items and groups with smaller ranks are presented on top/left side
-   * while with `"reversed" `legend.traceorder` they are on bottom/right side.
-   * The default legendrank is 1000, so that you can use ranks less than 1000 to place certain items
+   * <p>Sets the legend rank for this trace. Items and groups with smaller ranks are presented on
+   * top/left side while with `"reversed" `legend.traceorder` they are on bottom/right side. The
+   * default legendrank is 1000, so that you can use ranks less than 1000 to place certain items
    * before all unranked items, and ranks greater than 1000 to go after all unranked items.
    */
   private final double legendRank;

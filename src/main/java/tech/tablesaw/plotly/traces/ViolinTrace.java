@@ -2,15 +2,14 @@ package tech.tablesaw.plotly.traces;
 
 import static tech.tablesaw.plotly.Utils.dataAsString;
 
-import com.mitchellbosecke.pebble.error.PebbleException;
-import com.mitchellbosecke.pebble.template.PebbleTemplate;
-import tech.tablesaw.plotly.components.Marker;
-
+import io.pebbletemplates.pebble.error.PebbleException;
+import io.pebbletemplates.pebble.template.PebbleTemplate;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.Map;
+import tech.tablesaw.plotly.components.Marker;
 
 public class ViolinTrace extends AbstractTrace {
 

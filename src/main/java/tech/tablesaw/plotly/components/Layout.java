@@ -1,9 +1,9 @@
 package tech.tablesaw.plotly.components;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.mitchellbosecke.pebble.PebbleEngine;
-import com.mitchellbosecke.pebble.error.PebbleException;
-import com.mitchellbosecke.pebble.template.PebbleTemplate;
+import io.pebbletemplates.pebble.PebbleEngine;
+import io.pebbletemplates.pebble.error.PebbleException;
+import io.pebbletemplates.pebble.template.PebbleTemplate;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
@@ -315,6 +315,7 @@ public class Layout {
 
     /** The global font */
     private final Font font = DEFAULT_FONT;
+
     public Geo geo;
 
     /** The plot title */

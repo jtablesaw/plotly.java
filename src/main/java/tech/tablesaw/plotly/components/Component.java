@@ -1,19 +1,17 @@
 package tech.tablesaw.plotly.components;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mitchellbosecke.pebble.PebbleEngine;
+import static tech.tablesaw.plotly.JsonMapper.JSON_MAPPER;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.pebbletemplates.pebble.PebbleEngine;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.util.Map;
 
-import static tech.tablesaw.plotly.JsonMapper.JSON_MAPPER;
-
 public abstract class Component {
 
-  @JsonIgnore
-  private final PebbleEngine engine = TemplateUtils.getNewEngine();
+  @JsonIgnore private final PebbleEngine engine = TemplateUtils.getNewEngine();
 
   protected PebbleEngine getEngine() {
     return engine;

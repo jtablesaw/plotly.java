@@ -1,28 +1,26 @@
 package tech.tablesaw.plotly.traces;
 
+import static tech.tablesaw.plotly.Utils.dataAsString;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
-import com.mitchellbosecke.pebble.error.PebbleException;
-import com.mitchellbosecke.pebble.template.PebbleTemplate;
-import tech.tablesaw.plotly.components.*;
-
+import io.pebbletemplates.pebble.error.PebbleException;
+import io.pebbletemplates.pebble.template.PebbleTemplate;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.Map;
-
-import static tech.tablesaw.plotly.Utils.dataAsString;
+import tech.tablesaw.plotly.components.*;
 
 /**
- * A `contour` trace is an object with the key `"type"` equal to `"contour"` (i.e. `{"type": "contour"}`)
- * and any of the keys listed below.
+ * A `contour` trace is an object with the key `"type"` equal to `"contour"` (i.e. `{"type":
+ * "contour"}`) and any of the keys listed below.
  *
- * The data from which contour lines are computed is set in `z`. Data in `z` must be a 2D array of numbers.
- * Say that `z` has N rows and M columns, then by default,
- * these N rows correspond to N y coordinates (set in `y` or auto-generated)
- * and the M columns correspond to M x coordinates (set in `x` or auto-generated).
- * By setting `transpose` to "true", the above behavior is flipped.
+ * <p>The data from which contour lines are computed is set in `z`. Data in `z` must be a 2D array
+ * of numbers. Say that `z` has N rows and M columns, then by default, these N rows correspond to N
+ * y coordinates (set in `y` or auto-generated) and the M columns correspond to M x coordinates (set
+ * in `x` or auto-generated). By setting `transpose` to "true", the above behavior is flipped.
  */
 public class ContourTrace extends AbstractTrace {
 
@@ -53,10 +51,10 @@ public class ContourTrace extends AbstractTrace {
   /**
    * subplotid
    *
-   * Sets a reference to a shared color axis.
-   * References to these shared color axes are "coloraxis", "coloraxis2", "coloraxis3", etc.
-   * Settings for these shared color axes are set in the layout, under `layout.coloraxis`, `layout.coloraxis2`, etc.
-   * Note that multiple color scales can be linked to the same color axis.
+   * <p>Sets a reference to a shared color axis. References to these shared color axes are
+   * "coloraxis", "coloraxis2", "coloraxis3", etc. Settings for these shared color axes are set in
+   * the layout, under `layout.coloraxis`, `layout.coloraxis2`, etc. Note that multiple color scales
+   * can be linked to the same color axis.
    */
   private final String colorAxis;
 
@@ -179,18 +177,18 @@ public class ContourTrace extends AbstractTrace {
     /**
      * number or categorical coordinate string
      *
-     * Controls persistence of some user-driven changes to the trace: `constraintrange` in `parcoords` traces,
-     * as well as some `editable: true` modifications such as `name` and `colorbar.title`.
-     * Defaults to `layout.uirevision`.
-     * Note that other user-driven trace attribute changes are controlled by `layout` attributes:
-     * `trace.visible` is controlled by `layout.legend.uirevision`,
-     * `selectedpoints` is controlled by `layout.selectionrevision`, and `
-     * colorbar.(x|y)` (accessible with `config: {editable: true}`) is controlled by `layout.editrevision`.
+     * <p>Controls persistence of some user-driven changes to the trace: `constraintrange` in
+     * `parcoords` traces, as well as some `editable: true` modifications such as `name` and
+     * `colorbar.title`. Defaults to `layout.uirevision`. Note that other user-driven trace
+     * attribute changes are controlled by `layout` attributes: `trace.visible` is controlled by
+     * `layout.legend.uirevision`, `selectedpoints` is controlled by `layout.selectionrevision`, and
+     * ` colorbar.(x|y)` (accessible with `config: {editable: true}`) is controlled by
+     * `layout.editrevision`.
      *
-     * Trace changes are tracked by `uid`, which only falls back on trace index if no `uid` is provided.
-     * So if your app can add/remove traces before the end of the `data` array,
-     * such that the same trace has a different index, you can still preserve user-driven changes
-     * if you give each trace a `uid` that stays with it as it moves.
+     * <p>Trace changes are tracked by `uid`, which only falls back on trace index if no `uid` is
+     * provided. So if your app can add/remove traces before the end of the `data` array, such that
+     * the same trace has a different index, you can still preserve user-driven changes if you give
+     * each trace a `uid` that stays with it as it moves.
      */
     public ContourBuilder uiRevision(String uiRevision) {
       this.uiRevision = uiRevision;
@@ -202,27 +200,19 @@ public class ContourTrace extends AbstractTrace {
       return this;
     }
 
-    /**
-     * Sets the calendar system to use with the x data
-     * default = gregorian
-     */
+    /** Sets the calendar system to use with the x data default = gregorian */
     public ContourBuilder xCalendar(Calendar calendar) {
       this.xCalendar = calendar;
       return this;
     }
 
-    /**
-     * Sets the calendar system to use with the y data
-     * default = gregorian
-     */
+    /** Sets the calendar system to use with the y data default = gregorian */
     public ContourBuilder yCalendar(Calendar calendar) {
       this.yCalendar = calendar;
       return this;
     }
 
-    /**
-     * Transposes the z data.
-     */
+    /** Transposes the z data. */
     public ContourBuilder transpose(boolean transpose) {
       this.transpose = transpose;
       return this;
@@ -238,9 +228,9 @@ public class ContourTrace extends AbstractTrace {
     }
 
     /**
-     * Sets the maximum number of contour levels.
-     * The actual number of contours will be chosen automatically to be less than or equal to the value of
-     * `ncontours`. Has an effect only if `autocontour` is "true" or if `contours.size` is missing.
+     * Sets the maximum number of contour levels. The actual number of contours will be chosen
+     * automatically to be less than or equal to the value of `ncontours`. Has an effect only if
+     * `autocontour` is "true" or if `contours.size` is missing.
      */
     public ContourBuilder nContours(int nContours) {
       Preconditions.checkArgument(nContours > 0);
@@ -249,15 +239,13 @@ public class ContourTrace extends AbstractTrace {
     }
 
     /**
-     * default = true
-     * Determines whether or not gaps (i.e. {nan} or missing values) in the `z` data
+     * default = true Determines whether or not gaps (i.e. {nan} or missing values) in the `z` data
      * have hover labels associated with them.
      */
     public ContourBuilder hoverOnGaps(boolean hoverOnGaps) {
       this.hoverOnGaps = hoverOnGaps;
       return this;
     }
-
 
     @Override
     public ContourTrace.ContourBuilder xAxis(String xAxis) {
@@ -272,12 +260,11 @@ public class ContourTrace extends AbstractTrace {
     }
 
     /**
-     * default = true
-     * Sets a reference to a shared color axis.
-     * References to these shared color axes are "coloraxis", "coloraxis2", "coloraxis3", etc.
-     * Settings for these shared color axes are set in the layout, under `layout.coloraxis`, `layout.coloraxis2`, etc.
-     * Note that multiple color scales can be linked to the same color axis.
-     **/
+     * default = true Sets a reference to a shared color axis. References to these shared color axes
+     * are "coloraxis", "coloraxis2", "coloraxis3", etc. Settings for these shared color axes are
+     * set in the layout, under `layout.coloraxis`, `layout.coloraxis2`, etc. Note that multiple
+     * color scales can be linked to the same color axis.
+     */
     public ContourTrace.ContourBuilder autoContour(boolean autoContour) {
       this.autoContour = autoContour;
       return this;
