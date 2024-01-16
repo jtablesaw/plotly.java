@@ -2,21 +2,20 @@ package tech.tablesaw.plotly.traces;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.common.base.Preconditions;
-import com.mitchellbosecke.pebble.error.PebbleException;
-import com.mitchellbosecke.pebble.template.PebbleTemplate;
+import io.pebbletemplates.pebble.error.PebbleException;
+import io.pebbletemplates.pebble.template.PebbleTemplate;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.Map;
-
 import tech.tablesaw.plotly.Utils;
+import tech.tablesaw.plotly.change.Decreasing;
+import tech.tablesaw.plotly.change.Increasing;
 import tech.tablesaw.plotly.components.HoverLabel;
 import tech.tablesaw.plotly.components.Line;
 import tech.tablesaw.plotly.components.Marker;
-import tech.tablesaw.plotly.change.Decreasing;
-import tech.tablesaw.plotly.change.Increasing;
 
 public class ScatterTrace extends AbstractTrace {
 

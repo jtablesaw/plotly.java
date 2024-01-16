@@ -1,14 +1,13 @@
 package tech.tablesaw.plotly.traces;
 
-import com.mitchellbosecke.pebble.error.PebbleException;
-import com.mitchellbosecke.pebble.template.PebbleTemplate;
+import io.pebbletemplates.pebble.error.PebbleException;
+import io.pebbletemplates.pebble.template.PebbleTemplate;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.Map;
-
 import tech.tablesaw.plotly.Utils;
 import tech.tablesaw.plotly.components.Domain;
 
